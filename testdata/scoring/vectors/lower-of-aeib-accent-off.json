@@ -1,0 +1,98 @@
+{
+  "name": "lower-of-aeib-accent-off",
+  "description": "Counterexample of the lower-of rule (section 4, D17): expected áéíb typed áéíc, accent option off, PERFECT, combo 0. Play pair 6/7 (the three marks are kept), song pair 3/4; 6 x 4 = 24 > 3 x 7 = 21, so the song pair 3/4 is selected: N = 10 x 4 x 3 x 100 x 100 = 1200000, D = 4 x 10000 = 40000, 30 points (the play pair alone would give 34). Identical to the default play of lower-of-aeib-default.",
+  "config": {
+    "lead_in_ms": 1500,
+    "miss_window_ms": 3500,
+    "min_accuracy_pct": 60,
+    "tier_perfect_limit_ms": 600,
+    "tier_great_limit_ms": 1200,
+    "tier_good_limit_ms": 2200,
+    "tier_ok_limit_ms": 3500,
+    "tier_perfect_pct": 100,
+    "tier_great_pct": 80,
+    "tier_good_pct": 55,
+    "tier_ok_pct": 30,
+    "tier_early_pct": 10,
+    "base_points_per_char": 10,
+    "combo_base_pct": 100,
+    "combo_step_words": 10,
+    "combo_step_pct": 25,
+    "combo_cap_pct": 200,
+    "combo_accuracy_pct": 80,
+    "line_bonus": 50,
+    "default_accent_insensitive": true,
+    "default_case_insensitive": true,
+    "rank_s_pct": 90,
+    "rank_a_pct": 75,
+    "rank_b_pct": 55,
+    "rank_c_pct": 35,
+    "expected_time_pct": 90,
+    "max_line_window_ms": 6000,
+    "last_line_window_ms": 5000,
+    "max_typed_chars": 64
+  },
+  "overrides": {},
+  "timeline": {
+    "lines": [
+      {
+        "start_ms": 10000,
+        "end_ms": 15000,
+        "text": "áéíb",
+        "words": [
+          {
+            "text": "áéíb",
+            "expected_ms": 14500
+          }
+        ]
+      }
+    ]
+  },
+  "settings": {
+    "accent_insensitive": false,
+    "case_insensitive": true
+  },
+  "events": [
+    {
+      "type": "commit",
+      "t": 14500,
+      "word": 0,
+      "text": "áéíc"
+    }
+  ],
+  "expected": {
+    "result": {
+      "settings": {
+        "accent_insensitive": false,
+        "case_insensitive": true
+      },
+      "score": 30,
+      "accuracy_bp": 7500,
+      "hit_rate_bp": 10000,
+      "max_combo": 0,
+      "rank": "A",
+      "seeked": false,
+      "scorable_words": 1,
+      "hit_words": 1,
+      "max_base_score": 40,
+      "lines": [
+        {
+          "line": 0,
+          "points": 30,
+          "bonus": 0,
+          "words": [
+            {
+              "word": 0,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 4
+              },
+              "points": 30
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "name": "line-bonus-given",
+  "description": "Line bonus given (50, not multiplied by the combo). Line 0: moon is typed at 11899, expected 15400, delta -3501: EARLY with accuracy 4/4, no MISS: bonus. Line 1: sun is OK (delta 2300, 30 %) and rise is PERFECT, both at 100 %: bonus. The tier does not matter for the bonus. Arithmetic: word 0 typed 'moon' delta -3501 EARLY(10) accuracy 4/4 combo 0(100): N = 10 x 4 x 4 x 10 x 100 = 160000, D = 4 x 10000 = 40000, 160000/40000 = 4.0000 -> 4; word 1 typed 'sun' delta 2300 OK(30) accuracy 3/3 combo 0(100): N = 10 x 3 x 3 x 30 x 100 = 270000, D = 3 x 10000 = 30000, 270000/30000 = 9.0000 -> 9; word 2 typed 'rise' delta 0 PERFECT(100) accuracy 4/4 combo 0(100): N = 10 x 4 x 4 x 100 x 100 = 1600000, D = 4 x 10000 = 40000, 1600000/40000 = 40.0000 -> 40.",
+  "config": {
+    "lead_in_ms": 1500,
+    "miss_window_ms": 3500,
+    "min_accuracy_pct": 60,
+    "tier_perfect_limit_ms": 600,
+    "tier_great_limit_ms": 1200,
+    "tier_good_limit_ms": 2200,
+    "tier_ok_limit_ms": 3500,
+    "tier_perfect_pct": 100,
+    "tier_great_pct": 80,
+    "tier_good_pct": 55,
+    "tier_ok_pct": 30,
+    "tier_early_pct": 10,
+    "base_points_per_char": 10,
+    "combo_base_pct": 100,
+    "combo_step_words": 10,
+    "combo_step_pct": 25,
+    "combo_cap_pct": 200,
+    "combo_accuracy_pct": 80,
+    "line_bonus": 50,
+    "default_accent_insensitive": true,
+    "default_case_insensitive": true,
+    "rank_s_pct": 90,
+    "rank_a_pct": 75,
+    "rank_b_pct": 55,
+    "rank_c_pct": 35,
+    "expected_time_pct": 90,
+    "max_line_window_ms": 6000,
+    "last_line_window_ms": 5000,
+    "max_typed_chars": 64
+  },
+  "overrides": {},
+  "timeline": {
+    "lines": [
+      {
+        "start_ms": 10000,
+        "end_ms": 16000,
+        "text": "moon",
+        "words": [
+          {
+            "text": "moon",
+            "expected_ms": 15400
+          }
+        ]
+      },
+      {
+        "start_ms": 16000,
+        "end_ms": 21000,
+        "text": "sun rise",
+        "words": [
+          {
+            "text": "sun",
+            "expected_ms": 17929
+          },
+          {
+            "text": "rise",
+            "expected_ms": 20500
+          }
+        ]
+      }
+    ]
+  },
+  "settings": {
+    "accent_insensitive": true,
+    "case_insensitive": true
+  },
+  "events": [
+    {
+      "type": "commit",
+      "t": 11899,
+      "word": 0,
+      "text": "moon"
+    },
+    {
+      "type": "commit",
+      "t": 20229,
+      "word": 1,
+      "text": "sun"
+    },
+    {
+      "type": "commit",
+      "t": 20500,
+      "word": 2,
+      "text": "rise"
+    }
+  ],
+  "expected": {
+    "result": {
+      "settings": {
+        "accent_insensitive": true,
+        "case_insensitive": true
+      },
+      "score": 153,
+      "accuracy_bp": 10000,
+      "hit_rate_bp": 10000,
+      "max_combo": 1,
+      "rank": "S",
+      "seeked": false,
+      "scorable_words": 3,
+      "hit_words": 3,
+      "max_base_score": 110,
+      "lines": [
+        {
+          "line": 0,
+          "points": 4,
+          "bonus": 50,
+          "words": [
+            {
+              "word": 0,
+              "tier": "EARLY",
+              "accuracy": {
+                "num": 4,
+                "den": 4
+              },
+              "points": 4
+            }
+          ]
+        },
+        {
+          "line": 1,
+          "points": 49,
+          "bonus": 50,
+          "words": [
+            {
+              "word": 1,
+              "tier": "OK",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 9
+            },
+            {
+              "word": 2,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 4,
+                "den": 4
+              },
+              "points": 40
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

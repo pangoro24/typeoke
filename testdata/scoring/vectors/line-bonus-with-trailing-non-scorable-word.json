@@ -1,0 +1,135 @@
+{
+  "name": "line-bonus-with-trailing-non-scorable-word",
+  "description": "Line bonus when the line ends with a word that is not scorable: line 0 is sol followed by an em dash (global word 1, expected_ms null). The last scorable word of the line is sol, so the bonus is decided when sol is resolved (PERFECT, 3/3): 50. The dash is never current and gives no result. Line 1 (mar) also gets its bonus.",
+  "config": {
+    "lead_in_ms": 1500,
+    "miss_window_ms": 3500,
+    "min_accuracy_pct": 60,
+    "tier_perfect_limit_ms": 600,
+    "tier_great_limit_ms": 1200,
+    "tier_good_limit_ms": 2200,
+    "tier_ok_limit_ms": 3500,
+    "tier_perfect_pct": 100,
+    "tier_great_pct": 80,
+    "tier_good_pct": 55,
+    "tier_ok_pct": 30,
+    "tier_early_pct": 10,
+    "base_points_per_char": 10,
+    "combo_base_pct": 100,
+    "combo_step_words": 10,
+    "combo_step_pct": 25,
+    "combo_cap_pct": 200,
+    "combo_accuracy_pct": 80,
+    "line_bonus": 50,
+    "default_accent_insensitive": true,
+    "default_case_insensitive": true,
+    "rank_s_pct": 90,
+    "rank_a_pct": 75,
+    "rank_b_pct": 55,
+    "rank_c_pct": 35,
+    "expected_time_pct": 90,
+    "max_line_window_ms": 6000,
+    "last_line_window_ms": 5000,
+    "max_typed_chars": 64
+  },
+  "overrides": {},
+  "timeline": {
+    "lines": [
+      {
+        "start_ms": 10000,
+        "end_ms": 16000,
+        "text": "sol —",
+        "words": [
+          {
+            "text": "sol",
+            "expected_ms": 15400
+          },
+          {
+            "text": "—",
+            "expected_ms": null
+          }
+        ]
+      },
+      {
+        "start_ms": 16000,
+        "end_ms": 21000,
+        "text": "mar",
+        "words": [
+          {
+            "text": "mar",
+            "expected_ms": 20500
+          }
+        ]
+      }
+    ]
+  },
+  "settings": {
+    "accent_insensitive": true,
+    "case_insensitive": true
+  },
+  "events": [
+    {
+      "type": "commit",
+      "t": 15400,
+      "word": 0,
+      "text": "sol"
+    },
+    {
+      "type": "commit",
+      "t": 20500,
+      "word": 2,
+      "text": "mar"
+    }
+  ],
+  "expected": {
+    "result": {
+      "settings": {
+        "accent_insensitive": true,
+        "case_insensitive": true
+      },
+      "score": 160,
+      "accuracy_bp": 10000,
+      "hit_rate_bp": 10000,
+      "max_combo": 2,
+      "rank": "S",
+      "seeked": false,
+      "scorable_words": 2,
+      "hit_words": 2,
+      "max_base_score": 60,
+      "lines": [
+        {
+          "line": 0,
+          "points": 30,
+          "bonus": 50,
+          "words": [
+            {
+              "word": 0,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 30
+            }
+          ]
+        },
+        {
+          "line": 1,
+          "points": 30,
+          "bonus": 50,
+          "words": [
+            {
+              "word": 2,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 30
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

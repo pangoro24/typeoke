@@ -1,0 +1,130 @@
+{
+  "name": "catch-up-one-word",
+  "description": "Catch-up over one word: hello is expected at 11000 and never committed. The commit of bright (expected 14900) at 14900 first applies the expiries at 14900: 14900 - 11000 = 3900 > 3500, so hello is a MISS (combo 0) and bright becomes the current word; it is PERFECT (delta 0). moon (expected 14950) follows at 14950. The MISS denies the line bonus. The word times are supplied (section 16 allows it) and do not follow the section 6 rule; they lie inside the line windows. Arithmetic: word 0 expired at 14900 (14900 - 11000 = 3900 > 3500); word 1 typed 'bright' delta 0 PERFECT(100) accuracy 6/6 combo 0(100): N = 10 x 6 x 6 x 100 x 100 = 3600000, D = 6 x 10000 = 60000, 3600000/60000 = 60.0000 -> 60; word 2 typed 'moon' delta 0 PERFECT(100) accuracy 4/4 combo 1(100): N = 10 x 4 x 4 x 100 x 100 = 1600000, D = 4 x 10000 = 40000, 1600000/40000 = 40.0000 -> 40.",
+  "config": {
+    "lead_in_ms": 1500,
+    "miss_window_ms": 3500,
+    "min_accuracy_pct": 60,
+    "tier_perfect_limit_ms": 600,
+    "tier_great_limit_ms": 1200,
+    "tier_good_limit_ms": 2200,
+    "tier_ok_limit_ms": 3500,
+    "tier_perfect_pct": 100,
+    "tier_great_pct": 80,
+    "tier_good_pct": 55,
+    "tier_ok_pct": 30,
+    "tier_early_pct": 10,
+    "base_points_per_char": 10,
+    "combo_base_pct": 100,
+    "combo_step_words": 10,
+    "combo_step_pct": 25,
+    "combo_cap_pct": 200,
+    "combo_accuracy_pct": 80,
+    "line_bonus": 50,
+    "default_accent_insensitive": true,
+    "default_case_insensitive": true,
+    "rank_s_pct": 90,
+    "rank_a_pct": 75,
+    "rank_b_pct": 55,
+    "rank_c_pct": 35,
+    "expected_time_pct": 90,
+    "max_line_window_ms": 6000,
+    "last_line_window_ms": 5000,
+    "max_typed_chars": 64
+  },
+  "overrides": {},
+  "timeline": {
+    "lines": [
+      {
+        "start_ms": 10000,
+        "end_ms": 15000,
+        "text": "hello bright moon",
+        "words": [
+          {
+            "text": "hello",
+            "expected_ms": 11000
+          },
+          {
+            "text": "bright",
+            "expected_ms": 14900
+          },
+          {
+            "text": "moon",
+            "expected_ms": 14950
+          }
+        ]
+      }
+    ]
+  },
+  "settings": {
+    "accent_insensitive": true,
+    "case_insensitive": true
+  },
+  "events": [
+    {
+      "type": "commit",
+      "t": 14900,
+      "word": 1,
+      "text": "bright"
+    },
+    {
+      "type": "commit",
+      "t": 14950,
+      "word": 2,
+      "text": "moon"
+    }
+  ],
+  "expected": {
+    "result": {
+      "settings": {
+        "accent_insensitive": true,
+        "case_insensitive": true
+      },
+      "score": 100,
+      "accuracy_bp": 6667,
+      "hit_rate_bp": 6667,
+      "max_combo": 2,
+      "rank": "B",
+      "seeked": false,
+      "scorable_words": 3,
+      "hit_words": 2,
+      "max_base_score": 150,
+      "lines": [
+        {
+          "line": 0,
+          "points": 100,
+          "bonus": 0,
+          "words": [
+            {
+              "word": 0,
+              "tier": "MISS",
+              "accuracy": {
+                "num": 0,
+                "den": 1
+              },
+              "points": 0
+            },
+            {
+              "word": 1,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 6,
+                "den": 6
+              },
+              "points": 60
+            },
+            {
+              "word": 2,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 4,
+                "den": 4
+              },
+              "points": 40
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

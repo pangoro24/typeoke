@@ -1,0 +1,197 @@
+{
+  "name": "accuracy-80-limit-and-just-below",
+  "description": "Accuracy against the 80 % threshold, every commit at delta 0 (PERFECT): 12/15 = 80 % exactly meets it (combo +1), 11/15 = 73.3 % is just below (accepted, combo unchanged), hello/hellx is 4/5 = 80 % exactly (combo +1), melody/melxxy is 4/6 = 66.7 % (unchanged). The checks are 12 x 100 >= 80 x 15 (1200 >= 1200), 11 x 100 >= 1200 false, 4 x 100 >= 80 x 5 (400 >= 400), 4 x 100 >= 80 x 6 false. The synthetic word has 15 letters. The word times are supplied (section 16 allows it) and do not follow the section 6 rule; they lie inside the line windows. Arithmetic: word 0 typed 'marvelousnesxxx' delta 0 PERFECT(100) accuracy 12/15 combo 0(100): N = 10 x 15 x 12 x 100 x 100 = 18000000, D = 15 x 10000 = 150000, 18000000/150000 = 120.0000 -> 120; word 1 typed 'marvelousnexxxx' delta 0 PERFECT(100) accuracy 11/15 combo 1(100): N = 10 x 15 x 11 x 100 x 100 = 16500000, D = 15 x 10000 = 150000, 16500000/150000 = 110.0000 -> 110; word 2 typed 'hellx' delta 0 PERFECT(100) accuracy 4/5 combo 1(100): N = 10 x 5 x 4 x 100 x 100 = 2000000, D = 5 x 10000 = 50000, 2000000/50000 = 40.0000 -> 40; word 3 typed 'melxxy' delta 0 PERFECT(100) accuracy 4/6 combo 2(100): N = 10 x 6 x 4 x 100 x 100 = 2400000, D = 6 x 10000 = 60000, 2400000/60000 = 40.0000 -> 40.",
+  "config": {
+    "lead_in_ms": 1500,
+    "miss_window_ms": 3500,
+    "min_accuracy_pct": 60,
+    "tier_perfect_limit_ms": 600,
+    "tier_great_limit_ms": 1200,
+    "tier_good_limit_ms": 2200,
+    "tier_ok_limit_ms": 3500,
+    "tier_perfect_pct": 100,
+    "tier_great_pct": 80,
+    "tier_good_pct": 55,
+    "tier_ok_pct": 30,
+    "tier_early_pct": 10,
+    "base_points_per_char": 10,
+    "combo_base_pct": 100,
+    "combo_step_words": 10,
+    "combo_step_pct": 25,
+    "combo_cap_pct": 200,
+    "combo_accuracy_pct": 80,
+    "line_bonus": 50,
+    "default_accent_insensitive": true,
+    "default_case_insensitive": true,
+    "rank_s_pct": 90,
+    "rank_a_pct": 75,
+    "rank_b_pct": 55,
+    "rank_c_pct": 35,
+    "expected_time_pct": 90,
+    "max_line_window_ms": 6000,
+    "last_line_window_ms": 5000,
+    "max_typed_chars": 64
+  },
+  "overrides": {},
+  "timeline": {
+    "lines": [
+      {
+        "start_ms": 15000,
+        "end_ms": 21000,
+        "text": "marvelousnesses",
+        "words": [
+          {
+            "text": "marvelousnesses",
+            "expected_ms": 20000
+          }
+        ]
+      },
+      {
+        "start_ms": 25000,
+        "end_ms": 31000,
+        "text": "marvelousnesses",
+        "words": [
+          {
+            "text": "marvelousnesses",
+            "expected_ms": 30000
+          }
+        ]
+      },
+      {
+        "start_ms": 35000,
+        "end_ms": 41000,
+        "text": "hello",
+        "words": [
+          {
+            "text": "hello",
+            "expected_ms": 40000
+          }
+        ]
+      },
+      {
+        "start_ms": 45000,
+        "end_ms": 50000,
+        "text": "melody",
+        "words": [
+          {
+            "text": "melody",
+            "expected_ms": 50000
+          }
+        ]
+      }
+    ]
+  },
+  "settings": {
+    "accent_insensitive": true,
+    "case_insensitive": true
+  },
+  "events": [
+    {
+      "type": "commit",
+      "t": 20000,
+      "word": 0,
+      "text": "marvelousnesxxx"
+    },
+    {
+      "type": "commit",
+      "t": 30000,
+      "word": 1,
+      "text": "marvelousnexxxx"
+    },
+    {
+      "type": "commit",
+      "t": 40000,
+      "word": 2,
+      "text": "hellx"
+    },
+    {
+      "type": "commit",
+      "t": 50000,
+      "word": 3,
+      "text": "melxxy"
+    }
+  ],
+  "expected": {
+    "result": {
+      "settings": {
+        "accent_insensitive": true,
+        "case_insensitive": true
+      },
+      "score": 410,
+      "accuracy_bp": 7500,
+      "hit_rate_bp": 10000,
+      "max_combo": 2,
+      "rank": "S",
+      "seeked": false,
+      "scorable_words": 4,
+      "hit_words": 4,
+      "max_base_score": 410,
+      "lines": [
+        {
+          "line": 0,
+          "points": 120,
+          "bonus": 50,
+          "words": [
+            {
+              "word": 0,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 12,
+                "den": 15
+              },
+              "points": 120
+            }
+          ]
+        },
+        {
+          "line": 1,
+          "points": 110,
+          "bonus": 0,
+          "words": [
+            {
+              "word": 1,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 11,
+                "den": 15
+              },
+              "points": 110
+            }
+          ]
+        },
+        {
+          "line": 2,
+          "points": 40,
+          "bonus": 50,
+          "words": [
+            {
+              "word": 2,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 4,
+                "den": 5
+              },
+              "points": 40
+            }
+          ]
+        },
+        {
+          "line": 3,
+          "points": 40,
+          "bonus": 0,
+          "words": [
+            {
+              "word": 3,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 4,
+                "den": 6
+              },
+              "points": 40
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

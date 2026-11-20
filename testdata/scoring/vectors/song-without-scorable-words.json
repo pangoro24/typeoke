@@ -1,0 +1,90 @@
+{
+  "name": "song-without-scorable-words",
+  "description": "A song whose only words (an em dash and an ellipsis) normalize to empty: n = 0, score 0, accuracy and hit rate 0, rank D by the special rule (no comparisons), max_base_score 0, one line with no words. A pause is the only event.",
+  "config": {
+    "lead_in_ms": 1500,
+    "miss_window_ms": 3500,
+    "min_accuracy_pct": 60,
+    "tier_perfect_limit_ms": 600,
+    "tier_great_limit_ms": 1200,
+    "tier_good_limit_ms": 2200,
+    "tier_ok_limit_ms": 3500,
+    "tier_perfect_pct": 100,
+    "tier_great_pct": 80,
+    "tier_good_pct": 55,
+    "tier_ok_pct": 30,
+    "tier_early_pct": 10,
+    "base_points_per_char": 10,
+    "combo_base_pct": 100,
+    "combo_step_words": 10,
+    "combo_step_pct": 25,
+    "combo_cap_pct": 200,
+    "combo_accuracy_pct": 80,
+    "line_bonus": 50,
+    "default_accent_insensitive": true,
+    "default_case_insensitive": true,
+    "rank_s_pct": 90,
+    "rank_a_pct": 75,
+    "rank_b_pct": 55,
+    "rank_c_pct": 35,
+    "expected_time_pct": 90,
+    "max_line_window_ms": 6000,
+    "last_line_window_ms": 5000,
+    "max_typed_chars": 64
+  },
+  "overrides": {},
+  "timeline": {
+    "lines": [
+      {
+        "start_ms": 10000,
+        "end_ms": 15000,
+        "text": "— ...",
+        "words": [
+          {
+            "text": "—",
+            "expected_ms": null
+          },
+          {
+            "text": "...",
+            "expected_ms": null
+          }
+        ]
+      }
+    ]
+  },
+  "settings": {
+    "accent_insensitive": true,
+    "case_insensitive": true
+  },
+  "events": [
+    {
+      "type": "pause",
+      "t": 10500
+    }
+  ],
+  "expected": {
+    "result": {
+      "settings": {
+        "accent_insensitive": true,
+        "case_insensitive": true
+      },
+      "score": 0,
+      "accuracy_bp": 0,
+      "hit_rate_bp": 0,
+      "max_combo": 0,
+      "rank": "D",
+      "seeked": false,
+      "scorable_words": 0,
+      "hit_words": 0,
+      "max_base_score": 0,
+      "lines": [
+        {
+          "line": 0,
+          "points": 0,
+          "bonus": 0,
+          "words": []
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "name": "supplementary-plane-letters",
+  "description": "Words of Deseret letters (U+10400 to U+10403, category Lu, simple lowercase U+10428 to U+1042B), outside the BMP: lengths are code points, not UTF-16 units. The first word (3 code points) typed in lowercase is 3/3 with the case option on; the second (4 code points) typed with a final x instead of the last letter is d = 1, L = 4, 3/4 (a UTF-16 length would give 8 and 7/8): N = 10 x 4 x 3 x 100 x 100 = 1200000, D = 40000, 30 points. Arithmetic: word 0 typed '𐐨𐐩𐐪' delta 0 PERFECT(100) accuracy 3/3 combo 0(100): N = 10 x 3 x 3 x 100 x 100 = 900000, D = 3 x 10000 = 30000, 900000/30000 = 30.0000 -> 30; word 1 typed '𐐨𐐩𐐪x' delta 0 PERFECT(100) accuracy 3/4 combo 1(100): N = 10 x 4 x 3 x 100 x 100 = 1200000, D = 4 x 10000 = 40000, 1200000/40000 = 30.0000 -> 30.",
+  "config": {
+    "lead_in_ms": 1500,
+    "miss_window_ms": 3500,
+    "min_accuracy_pct": 60,
+    "tier_perfect_limit_ms": 600,
+    "tier_great_limit_ms": 1200,
+    "tier_good_limit_ms": 2200,
+    "tier_ok_limit_ms": 3500,
+    "tier_perfect_pct": 100,
+    "tier_great_pct": 80,
+    "tier_good_pct": 55,
+    "tier_ok_pct": 30,
+    "tier_early_pct": 10,
+    "base_points_per_char": 10,
+    "combo_base_pct": 100,
+    "combo_step_words": 10,
+    "combo_step_pct": 25,
+    "combo_cap_pct": 200,
+    "combo_accuracy_pct": 80,
+    "line_bonus": 50,
+    "default_accent_insensitive": true,
+    "default_case_insensitive": true,
+    "rank_s_pct": 90,
+    "rank_a_pct": 75,
+    "rank_b_pct": 55,
+    "rank_c_pct": 35,
+    "expected_time_pct": 90,
+    "max_line_window_ms": 6000,
+    "last_line_window_ms": 5000,
+    "max_typed_chars": 64
+  },
+  "overrides": {},
+  "timeline": {
+    "lines": [
+      {
+        "start_ms": 10000,
+        "end_ms": 15000,
+        "text": "𐐀𐐁𐐂 𐐀𐐁𐐂𐐃",
+        "words": [
+          {
+            "text": "𐐀𐐁𐐂",
+            "expected_ms": 11929
+          },
+          {
+            "text": "𐐀𐐁𐐂𐐃",
+            "expected_ms": 14500
+          }
+        ]
+      }
+    ]
+  },
+  "settings": {
+    "accent_insensitive": true,
+    "case_insensitive": true
+  },
+  "events": [
+    {
+      "type": "commit",
+      "t": 11929,
+      "word": 0,
+      "text": "𐐨𐐩𐐪"
+    },
+    {
+      "type": "commit",
+      "t": 14500,
+      "word": 1,
+      "text": "𐐨𐐩𐐪x"
+    }
+  ],
+  "expected": {
+    "result": {
+      "settings": {
+        "accent_insensitive": true,
+        "case_insensitive": true
+      },
+      "score": 60,
+      "accuracy_bp": 8750,
+      "hit_rate_bp": 10000,
+      "max_combo": 1,
+      "rank": "A",
+      "seeked": false,
+      "scorable_words": 2,
+      "hit_words": 2,
+      "max_base_score": 70,
+      "lines": [
+        {
+          "line": 0,
+          "points": 60,
+          "bonus": 0,
+          "words": [
+            {
+              "word": 0,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 30
+            },
+            {
+              "word": 1,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 4
+              },
+              "points": 30
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,1219 @@
+{
+  "name": "combo-reaches-20-and-cap",
+  "description": "One line of 60 three-letter words (expected 10075, 10150, ..., 14500, 75 ms apart), each committed at its expected time with accuracy 1. The multiplier comes from the combo before each word: words 0 to 9 at 100 (30 points), 10 to 19 at 125 (37.5 gives 38), 20 to 29 at 150 (45), 30 to 39 at 175 (52.5 gives 53), 40 to 49 at 200 (100 + 4 x 25 = 200, equal to the cap) and 50 to 59 at min(200, 100 + 5 x 25 = 225) = 200, the cap in action (60 points each). Sum 300 + 380 + 450 + 530 + 20 x 60 = 2860, plus the line bonus 50 = 2910. max_combo 60.",
+  "config": {
+    "lead_in_ms": 1500,
+    "miss_window_ms": 3500,
+    "min_accuracy_pct": 60,
+    "tier_perfect_limit_ms": 600,
+    "tier_great_limit_ms": 1200,
+    "tier_good_limit_ms": 2200,
+    "tier_ok_limit_ms": 3500,
+    "tier_perfect_pct": 100,
+    "tier_great_pct": 80,
+    "tier_good_pct": 55,
+    "tier_ok_pct": 30,
+    "tier_early_pct": 10,
+    "base_points_per_char": 10,
+    "combo_base_pct": 100,
+    "combo_step_words": 10,
+    "combo_step_pct": 25,
+    "combo_cap_pct": 200,
+    "combo_accuracy_pct": 80,
+    "line_bonus": 50,
+    "default_accent_insensitive": true,
+    "default_case_insensitive": true,
+    "rank_s_pct": 90,
+    "rank_a_pct": 75,
+    "rank_b_pct": 55,
+    "rank_c_pct": 35,
+    "expected_time_pct": 90,
+    "max_line_window_ms": 6000,
+    "last_line_window_ms": 5000,
+    "max_typed_chars": 64
+  },
+  "overrides": {},
+  "timeline": {
+    "lines": [
+      {
+        "start_ms": 10000,
+        "end_ms": 15000,
+        "text": "lam pir tos vek lam pir tos vek lam pir tos vek lam pir tos vek lam pir tos vek lam pir tos vek lam pir tos vek lam pir tos vek lam pir tos vek lam pir tos vek lam pir tos vek lam pir tos vek lam pir tos vek lam pir tos vek lam pir tos vek",
+        "words": [
+          {
+            "text": "lam",
+            "expected_ms": 10075
+          },
+          {
+            "text": "pir",
+            "expected_ms": 10150
+          },
+          {
+            "text": "tos",
+            "expected_ms": 10225
+          },
+          {
+            "text": "vek",
+            "expected_ms": 10300
+          },
+          {
+            "text": "lam",
+            "expected_ms": 10375
+          },
+          {
+            "text": "pir",
+            "expected_ms": 10450
+          },
+          {
+            "text": "tos",
+            "expected_ms": 10525
+          },
+          {
+            "text": "vek",
+            "expected_ms": 10600
+          },
+          {
+            "text": "lam",
+            "expected_ms": 10675
+          },
+          {
+            "text": "pir",
+            "expected_ms": 10750
+          },
+          {
+            "text": "tos",
+            "expected_ms": 10825
+          },
+          {
+            "text": "vek",
+            "expected_ms": 10900
+          },
+          {
+            "text": "lam",
+            "expected_ms": 10975
+          },
+          {
+            "text": "pir",
+            "expected_ms": 11050
+          },
+          {
+            "text": "tos",
+            "expected_ms": 11125
+          },
+          {
+            "text": "vek",
+            "expected_ms": 11200
+          },
+          {
+            "text": "lam",
+            "expected_ms": 11275
+          },
+          {
+            "text": "pir",
+            "expected_ms": 11350
+          },
+          {
+            "text": "tos",
+            "expected_ms": 11425
+          },
+          {
+            "text": "vek",
+            "expected_ms": 11500
+          },
+          {
+            "text": "lam",
+            "expected_ms": 11575
+          },
+          {
+            "text": "pir",
+            "expected_ms": 11650
+          },
+          {
+            "text": "tos",
+            "expected_ms": 11725
+          },
+          {
+            "text": "vek",
+            "expected_ms": 11800
+          },
+          {
+            "text": "lam",
+            "expected_ms": 11875
+          },
+          {
+            "text": "pir",
+            "expected_ms": 11950
+          },
+          {
+            "text": "tos",
+            "expected_ms": 12025
+          },
+          {
+            "text": "vek",
+            "expected_ms": 12100
+          },
+          {
+            "text": "lam",
+            "expected_ms": 12175
+          },
+          {
+            "text": "pir",
+            "expected_ms": 12250
+          },
+          {
+            "text": "tos",
+            "expected_ms": 12325
+          },
+          {
+            "text": "vek",
+            "expected_ms": 12400
+          },
+          {
+            "text": "lam",
+            "expected_ms": 12475
+          },
+          {
+            "text": "pir",
+            "expected_ms": 12550
+          },
+          {
+            "text": "tos",
+            "expected_ms": 12625
+          },
+          {
+            "text": "vek",
+            "expected_ms": 12700
+          },
+          {
+            "text": "lam",
+            "expected_ms": 12775
+          },
+          {
+            "text": "pir",
+            "expected_ms": 12850
+          },
+          {
+            "text": "tos",
+            "expected_ms": 12925
+          },
+          {
+            "text": "vek",
+            "expected_ms": 13000
+          },
+          {
+            "text": "lam",
+            "expected_ms": 13075
+          },
+          {
+            "text": "pir",
+            "expected_ms": 13150
+          },
+          {
+            "text": "tos",
+            "expected_ms": 13225
+          },
+          {
+            "text": "vek",
+            "expected_ms": 13300
+          },
+          {
+            "text": "lam",
+            "expected_ms": 13375
+          },
+          {
+            "text": "pir",
+            "expected_ms": 13450
+          },
+          {
+            "text": "tos",
+            "expected_ms": 13525
+          },
+          {
+            "text": "vek",
+            "expected_ms": 13600
+          },
+          {
+            "text": "lam",
+            "expected_ms": 13675
+          },
+          {
+            "text": "pir",
+            "expected_ms": 13750
+          },
+          {
+            "text": "tos",
+            "expected_ms": 13825
+          },
+          {
+            "text": "vek",
+            "expected_ms": 13900
+          },
+          {
+            "text": "lam",
+            "expected_ms": 13975
+          },
+          {
+            "text": "pir",
+            "expected_ms": 14050
+          },
+          {
+            "text": "tos",
+            "expected_ms": 14125
+          },
+          {
+            "text": "vek",
+            "expected_ms": 14200
+          },
+          {
+            "text": "lam",
+            "expected_ms": 14275
+          },
+          {
+            "text": "pir",
+            "expected_ms": 14350
+          },
+          {
+            "text": "tos",
+            "expected_ms": 14425
+          },
+          {
+            "text": "vek",
+            "expected_ms": 14500
+          }
+        ]
+      }
+    ]
+  },
+  "settings": {
+    "accent_insensitive": true,
+    "case_insensitive": true
+  },
+  "events": [
+    {
+      "type": "commit",
+      "t": 10075,
+      "word": 0,
+      "text": "lam"
+    },
+    {
+      "type": "commit",
+      "t": 10150,
+      "word": 1,
+      "text": "pir"
+    },
+    {
+      "type": "commit",
+      "t": 10225,
+      "word": 2,
+      "text": "tos"
+    },
+    {
+      "type": "commit",
+      "t": 10300,
+      "word": 3,
+      "text": "vek"
+    },
+    {
+      "type": "commit",
+      "t": 10375,
+      "word": 4,
+      "text": "lam"
+    },
+    {
+      "type": "commit",
+      "t": 10450,
+      "word": 5,
+      "text": "pir"
+    },
+    {
+      "type": "commit",
+      "t": 10525,
+      "word": 6,
+      "text": "tos"
+    },
+    {
+      "type": "commit",
+      "t": 10600,
+      "word": 7,
+      "text": "vek"
+    },
+    {
+      "type": "commit",
+      "t": 10675,
+      "word": 8,
+      "text": "lam"
+    },
+    {
+      "type": "commit",
+      "t": 10750,
+      "word": 9,
+      "text": "pir"
+    },
+    {
+      "type": "commit",
+      "t": 10825,
+      "word": 10,
+      "text": "tos"
+    },
+    {
+      "type": "commit",
+      "t": 10900,
+      "word": 11,
+      "text": "vek"
+    },
+    {
+      "type": "commit",
+      "t": 10975,
+      "word": 12,
+      "text": "lam"
+    },
+    {
+      "type": "commit",
+      "t": 11050,
+      "word": 13,
+      "text": "pir"
+    },
+    {
+      "type": "commit",
+      "t": 11125,
+      "word": 14,
+      "text": "tos"
+    },
+    {
+      "type": "commit",
+      "t": 11200,
+      "word": 15,
+      "text": "vek"
+    },
+    {
+      "type": "commit",
+      "t": 11275,
+      "word": 16,
+      "text": "lam"
+    },
+    {
+      "type": "commit",
+      "t": 11350,
+      "word": 17,
+      "text": "pir"
+    },
+    {
+      "type": "commit",
+      "t": 11425,
+      "word": 18,
+      "text": "tos"
+    },
+    {
+      "type": "commit",
+      "t": 11500,
+      "word": 19,
+      "text": "vek"
+    },
+    {
+      "type": "commit",
+      "t": 11575,
+      "word": 20,
+      "text": "lam"
+    },
+    {
+      "type": "commit",
+      "t": 11650,
+      "word": 21,
+      "text": "pir"
+    },
+    {
+      "type": "commit",
+      "t": 11725,
+      "word": 22,
+      "text": "tos"
+    },
+    {
+      "type": "commit",
+      "t": 11800,
+      "word": 23,
+      "text": "vek"
+    },
+    {
+      "type": "commit",
+      "t": 11875,
+      "word": 24,
+      "text": "lam"
+    },
+    {
+      "type": "commit",
+      "t": 11950,
+      "word": 25,
+      "text": "pir"
+    },
+    {
+      "type": "commit",
+      "t": 12025,
+      "word": 26,
+      "text": "tos"
+    },
+    {
+      "type": "commit",
+      "t": 12100,
+      "word": 27,
+      "text": "vek"
+    },
+    {
+      "type": "commit",
+      "t": 12175,
+      "word": 28,
+      "text": "lam"
+    },
+    {
+      "type": "commit",
+      "t": 12250,
+      "word": 29,
+      "text": "pir"
+    },
+    {
+      "type": "commit",
+      "t": 12325,
+      "word": 30,
+      "text": "tos"
+    },
+    {
+      "type": "commit",
+      "t": 12400,
+      "word": 31,
+      "text": "vek"
+    },
+    {
+      "type": "commit",
+      "t": 12475,
+      "word": 32,
+      "text": "lam"
+    },
+    {
+      "type": "commit",
+      "t": 12550,
+      "word": 33,
+      "text": "pir"
+    },
+    {
+      "type": "commit",
+      "t": 12625,
+      "word": 34,
+      "text": "tos"
+    },
+    {
+      "type": "commit",
+      "t": 12700,
+      "word": 35,
+      "text": "vek"
+    },
+    {
+      "type": "commit",
+      "t": 12775,
+      "word": 36,
+      "text": "lam"
+    },
+    {
+      "type": "commit",
+      "t": 12850,
+      "word": 37,
+      "text": "pir"
+    },
+    {
+      "type": "commit",
+      "t": 12925,
+      "word": 38,
+      "text": "tos"
+    },
+    {
+      "type": "commit",
+      "t": 13000,
+      "word": 39,
+      "text": "vek"
+    },
+    {
+      "type": "commit",
+      "t": 13075,
+      "word": 40,
+      "text": "lam"
+    },
+    {
+      "type": "commit",
+      "t": 13150,
+      "word": 41,
+      "text": "pir"
+    },
+    {
+      "type": "commit",
+      "t": 13225,
+      "word": 42,
+      "text": "tos"
+    },
+    {
+      "type": "commit",
+      "t": 13300,
+      "word": 43,
+      "text": "vek"
+    },
+    {
+      "type": "commit",
+      "t": 13375,
+      "word": 44,
+      "text": "lam"
+    },
+    {
+      "type": "commit",
+      "t": 13450,
+      "word": 45,
+      "text": "pir"
+    },
+    {
+      "type": "commit",
+      "t": 13525,
+      "word": 46,
+      "text": "tos"
+    },
+    {
+      "type": "commit",
+      "t": 13600,
+      "word": 47,
+      "text": "vek"
+    },
+    {
+      "type": "commit",
+      "t": 13675,
+      "word": 48,
+      "text": "lam"
+    },
+    {
+      "type": "commit",
+      "t": 13750,
+      "word": 49,
+      "text": "pir"
+    },
+    {
+      "type": "commit",
+      "t": 13825,
+      "word": 50,
+      "text": "tos"
+    },
+    {
+      "type": "commit",
+      "t": 13900,
+      "word": 51,
+      "text": "vek"
+    },
+    {
+      "type": "commit",
+      "t": 13975,
+      "word": 52,
+      "text": "lam"
+    },
+    {
+      "type": "commit",
+      "t": 14050,
+      "word": 53,
+      "text": "pir"
+    },
+    {
+      "type": "commit",
+      "t": 14125,
+      "word": 54,
+      "text": "tos"
+    },
+    {
+      "type": "commit",
+      "t": 14200,
+      "word": 55,
+      "text": "vek"
+    },
+    {
+      "type": "commit",
+      "t": 14275,
+      "word": 56,
+      "text": "lam"
+    },
+    {
+      "type": "commit",
+      "t": 14350,
+      "word": 57,
+      "text": "pir"
+    },
+    {
+      "type": "commit",
+      "t": 14425,
+      "word": 58,
+      "text": "tos"
+    },
+    {
+      "type": "commit",
+      "t": 14500,
+      "word": 59,
+      "text": "vek"
+    }
+  ],
+  "expected": {
+    "result": {
+      "settings": {
+        "accent_insensitive": true,
+        "case_insensitive": true
+      },
+      "score": 2910,
+      "accuracy_bp": 10000,
+      "hit_rate_bp": 10000,
+      "max_combo": 60,
+      "rank": "S",
+      "seeked": false,
+      "scorable_words": 60,
+      "hit_words": 60,
+      "max_base_score": 1800,
+      "lines": [
+        {
+          "line": 0,
+          "points": 2860,
+          "bonus": 50,
+          "words": [
+            {
+              "word": 0,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 30
+            },
+            {
+              "word": 1,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 30
+            },
+            {
+              "word": 2,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 30
+            },
+            {
+              "word": 3,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 30
+            },
+            {
+              "word": 4,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 30
+            },
+            {
+              "word": 5,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 30
+            },
+            {
+              "word": 6,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 30
+            },
+            {
+              "word": 7,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 30
+            },
+            {
+              "word": 8,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 30
+            },
+            {
+              "word": 9,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 30
+            },
+            {
+              "word": 10,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 38
+            },
+            {
+              "word": 11,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 38
+            },
+            {
+              "word": 12,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 38
+            },
+            {
+              "word": 13,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 38
+            },
+            {
+              "word": 14,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 38
+            },
+            {
+              "word": 15,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 38
+            },
+            {
+              "word": 16,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 38
+            },
+            {
+              "word": 17,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 38
+            },
+            {
+              "word": 18,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 38
+            },
+            {
+              "word": 19,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 38
+            },
+            {
+              "word": 20,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 45
+            },
+            {
+              "word": 21,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 45
+            },
+            {
+              "word": 22,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 45
+            },
+            {
+              "word": 23,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 45
+            },
+            {
+              "word": 24,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 45
+            },
+            {
+              "word": 25,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 45
+            },
+            {
+              "word": 26,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 45
+            },
+            {
+              "word": 27,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 45
+            },
+            {
+              "word": 28,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 45
+            },
+            {
+              "word": 29,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 45
+            },
+            {
+              "word": 30,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 53
+            },
+            {
+              "word": 31,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 53
+            },
+            {
+              "word": 32,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 53
+            },
+            {
+              "word": 33,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 53
+            },
+            {
+              "word": 34,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 53
+            },
+            {
+              "word": 35,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 53
+            },
+            {
+              "word": 36,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 53
+            },
+            {
+              "word": 37,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 53
+            },
+            {
+              "word": 38,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 53
+            },
+            {
+              "word": 39,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 53
+            },
+            {
+              "word": 40,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 60
+            },
+            {
+              "word": 41,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 60
+            },
+            {
+              "word": 42,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 60
+            },
+            {
+              "word": 43,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 60
+            },
+            {
+              "word": 44,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 60
+            },
+            {
+              "word": 45,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 60
+            },
+            {
+              "word": 46,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 60
+            },
+            {
+              "word": 47,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 60
+            },
+            {
+              "word": 48,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 60
+            },
+            {
+              "word": 49,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 60
+            },
+            {
+              "word": 50,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 60
+            },
+            {
+              "word": 51,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 60
+            },
+            {
+              "word": 52,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 60
+            },
+            {
+              "word": 53,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 60
+            },
+            {
+              "word": 54,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 60
+            },
+            {
+              "word": 55,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 60
+            },
+            {
+              "word": 56,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 60
+            },
+            {
+              "word": 57,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 60
+            },
+            {
+              "word": 58,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 60
+            },
+            {
+              "word": 59,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 60
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
