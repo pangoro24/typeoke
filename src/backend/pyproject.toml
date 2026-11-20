@@ -1,0 +1,40 @@
+[project]
+name = "typeoke-core"
+version = "0.1.0"
+description = "Authoritative server-side scoring for Typeoke."
+requires-python = ">=3.14,<3.15"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "jsonschema==4.26.0",
+    "mypy==2.4.1",
+    "pytest==9.2.0",
+    "pytest-cov==7.1.0",
+    "ruff==0.17.4",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py314"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "C4", "RUF"]
+
+[tool.mypy]
+strict = true
+python_version = "3.14"
+files = ["typeoke_core", "tests", "../../scripts"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers"
+
+[tool.coverage.run]
+source = ["typeoke_core", "../../scripts"]
+branch = true
+disable_warnings = ["module-not-imported"]
+
+[tool.coverage.report]
+show_missing = true
+skip_empty = true
