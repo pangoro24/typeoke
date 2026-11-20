@@ -1,0 +1,122 @@
+{
+  "name": "seek-backward-locked-word-rejected",
+  "description": "Seek backward (section 12 example): hello at 11300 (50 points), a seek back to 5000 from 12000 keeps the result of hello and leaves bright (line 0, start 10000) current but locked until 8500; the commit at 5000 passes the time check (5000 >= 5000) and is rejected as INCONSISTENT_WORD_INDEX at index 2.",
+  "config": {
+    "lead_in_ms": 1500,
+    "miss_window_ms": 3500,
+    "min_accuracy_pct": 60,
+    "tier_perfect_limit_ms": 600,
+    "tier_great_limit_ms": 1200,
+    "tier_good_limit_ms": 2200,
+    "tier_ok_limit_ms": 3500,
+    "tier_perfect_pct": 100,
+    "tier_great_pct": 80,
+    "tier_good_pct": 55,
+    "tier_ok_pct": 30,
+    "tier_early_pct": 10,
+    "base_points_per_char": 10,
+    "combo_base_pct": 100,
+    "combo_step_words": 10,
+    "combo_step_pct": 25,
+    "combo_cap_pct": 200,
+    "combo_accuracy_pct": 80,
+    "line_bonus": 50,
+    "default_accent_insensitive": true,
+    "default_case_insensitive": true,
+    "rank_s_pct": 90,
+    "rank_a_pct": 75,
+    "rank_b_pct": 55,
+    "rank_c_pct": 35,
+    "expected_time_pct": 90,
+    "max_line_window_ms": 6000,
+    "last_line_window_ms": 5000,
+    "max_typed_chars": 64
+  },
+  "overrides": {},
+  "timeline": {
+    "lines": [
+      {
+        "start_ms": 10000,
+        "end_ms": 16000,
+        "text": "Hello, bright moon",
+        "words": [
+          {
+            "text": "Hello,",
+            "expected_ms": 11800
+          },
+          {
+            "text": "bright",
+            "expected_ms": 13960
+          },
+          {
+            "text": "moon",
+            "expected_ms": 15400
+          }
+        ]
+      },
+      {
+        "start_ms": 20000,
+        "end_ms": 24025,
+        "text": "Sky up",
+        "words": [
+          {
+            "text": "Sky",
+            "expected_ms": 22174
+          },
+          {
+            "text": "up",
+            "expected_ms": 23623
+          }
+        ]
+      },
+      {
+        "start_ms": 24025,
+        "end_ms": 29025,
+        "text": "La la la",
+        "words": [
+          {
+            "text": "La",
+            "expected_ms": 25525
+          },
+          {
+            "text": "la",
+            "expected_ms": 27025
+          },
+          {
+            "text": "la",
+            "expected_ms": 28525
+          }
+        ]
+      }
+    ]
+  },
+  "settings": {
+    "accent_insensitive": true,
+    "case_insensitive": true
+  },
+  "events": [
+    {
+      "type": "commit",
+      "t": 11300,
+      "word": 0,
+      "text": "Hello"
+    },
+    {
+      "type": "seek",
+      "t": 5000,
+      "from": 12000
+    },
+    {
+      "type": "commit",
+      "t": 5000,
+      "word": 1,
+      "text": "bright"
+    }
+  ],
+  "expected": {
+    "rejection": {
+      "reason": "INCONSISTENT_WORD_INDEX",
+      "event_index": 2
+    }
+  }
+}

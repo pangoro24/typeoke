@@ -1,0 +1,166 @@
+{
+  "name": "non-scorable-word-and-empty-line",
+  "description": "An empty line (no words) at 38000 and a line Oh — yes whose middle word (an em dash, punctuation) normalizes to empty: it has no expected time (null), no result and no points, but keeps its global index 1; the song words are 0 (Oh), 2 (yes) and 3 (la). oh has expected 41440 and yes 43600 (total_chars 5). The empty line appears in the result with no words, 0 points and no bonus.",
+  "config": {
+    "lead_in_ms": 1500,
+    "miss_window_ms": 3500,
+    "min_accuracy_pct": 60,
+    "tier_perfect_limit_ms": 600,
+    "tier_great_limit_ms": 1200,
+    "tier_good_limit_ms": 2200,
+    "tier_ok_limit_ms": 3500,
+    "tier_perfect_pct": 100,
+    "tier_great_pct": 80,
+    "tier_good_pct": 55,
+    "tier_ok_pct": 30,
+    "tier_early_pct": 10,
+    "base_points_per_char": 10,
+    "combo_base_pct": 100,
+    "combo_step_words": 10,
+    "combo_step_pct": 25,
+    "combo_cap_pct": 200,
+    "combo_accuracy_pct": 80,
+    "line_bonus": 50,
+    "default_accent_insensitive": true,
+    "default_case_insensitive": true,
+    "rank_s_pct": 90,
+    "rank_a_pct": 75,
+    "rank_b_pct": 55,
+    "rank_c_pct": 35,
+    "expected_time_pct": 90,
+    "max_line_window_ms": 6000,
+    "last_line_window_ms": 5000,
+    "max_typed_chars": 64
+  },
+  "overrides": {},
+  "timeline": {
+    "lines": [
+      {
+        "start_ms": 38000,
+        "end_ms": 40000,
+        "text": "",
+        "words": []
+      },
+      {
+        "start_ms": 40000,
+        "end_ms": 44000,
+        "text": "Oh — yes",
+        "words": [
+          {
+            "text": "Oh",
+            "expected_ms": 41440
+          },
+          {
+            "text": "—",
+            "expected_ms": null
+          },
+          {
+            "text": "yes",
+            "expected_ms": 43600
+          }
+        ]
+      },
+      {
+        "start_ms": 44000,
+        "end_ms": 49000,
+        "text": "la",
+        "words": [
+          {
+            "text": "la",
+            "expected_ms": 48500
+          }
+        ]
+      }
+    ]
+  },
+  "settings": {
+    "accent_insensitive": true,
+    "case_insensitive": true
+  },
+  "events": [
+    {
+      "type": "commit",
+      "t": 41440,
+      "word": 0,
+      "text": "oh"
+    },
+    {
+      "type": "commit",
+      "t": 43600,
+      "word": 2,
+      "text": "yes"
+    },
+    {
+      "type": "commit",
+      "t": 48500,
+      "word": 3,
+      "text": "la"
+    }
+  ],
+  "expected": {
+    "result": {
+      "settings": {
+        "accent_insensitive": true,
+        "case_insensitive": true
+      },
+      "score": 170,
+      "accuracy_bp": 10000,
+      "hit_rate_bp": 10000,
+      "max_combo": 3,
+      "rank": "S",
+      "seeked": false,
+      "scorable_words": 3,
+      "hit_words": 3,
+      "max_base_score": 70,
+      "lines": [
+        {
+          "line": 0,
+          "points": 0,
+          "bonus": 0,
+          "words": []
+        },
+        {
+          "line": 1,
+          "points": 50,
+          "bonus": 50,
+          "words": [
+            {
+              "word": 0,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 2,
+                "den": 2
+              },
+              "points": 20
+            },
+            {
+              "word": 2,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 30
+            }
+          ]
+        },
+        {
+          "line": 2,
+          "points": 20,
+          "bonus": 50,
+          "words": [
+            {
+              "word": 3,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 2,
+                "den": 2
+              },
+              "points": 20
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

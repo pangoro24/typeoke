@@ -1,0 +1,163 @@
+{
+  "name": "line-bonus-denied-by-miss",
+  "description": "Line bonus denied by a MISS. Line 0: moon typed zzzz is a MISS by accuracy (0/4). Line 1: sun is exact, rise is never committed and becomes a MISS at the end of the log. Neither line gets a bonus. Arithmetic: word 0 typed 'hello' delta 0 PERFECT(100) accuracy 5/5 combo 0(100): N = 10 x 5 x 5 x 100 x 100 = 2500000, D = 5 x 10000 = 50000, 2500000/50000 = 50.0000 -> 50; word 1 typed 'zzzz': accuracy 0/4 below 60 % -> MISS, 0 points; word 2 typed 'sun' delta 0 PERFECT(100) accuracy 3/3 combo 0(100): N = 10 x 3 x 3 x 100 x 100 = 900000, D = 3 x 10000 = 30000, 900000/30000 = 30.0000 -> 30.",
+  "config": {
+    "lead_in_ms": 1500,
+    "miss_window_ms": 3500,
+    "min_accuracy_pct": 60,
+    "tier_perfect_limit_ms": 600,
+    "tier_great_limit_ms": 1200,
+    "tier_good_limit_ms": 2200,
+    "tier_ok_limit_ms": 3500,
+    "tier_perfect_pct": 100,
+    "tier_great_pct": 80,
+    "tier_good_pct": 55,
+    "tier_ok_pct": 30,
+    "tier_early_pct": 10,
+    "base_points_per_char": 10,
+    "combo_base_pct": 100,
+    "combo_step_words": 10,
+    "combo_step_pct": 25,
+    "combo_cap_pct": 200,
+    "combo_accuracy_pct": 80,
+    "line_bonus": 50,
+    "default_accent_insensitive": true,
+    "default_case_insensitive": true,
+    "rank_s_pct": 90,
+    "rank_a_pct": 75,
+    "rank_b_pct": 55,
+    "rank_c_pct": 35,
+    "expected_time_pct": 90,
+    "max_line_window_ms": 6000,
+    "last_line_window_ms": 5000,
+    "max_typed_chars": 64
+  },
+  "overrides": {},
+  "timeline": {
+    "lines": [
+      {
+        "start_ms": 10000,
+        "end_ms": 16000,
+        "text": "hello moon",
+        "words": [
+          {
+            "text": "hello",
+            "expected_ms": 13000
+          },
+          {
+            "text": "moon",
+            "expected_ms": 15400
+          }
+        ]
+      },
+      {
+        "start_ms": 20000,
+        "end_ms": 25000,
+        "text": "sun rise",
+        "words": [
+          {
+            "text": "sun",
+            "expected_ms": 21929
+          },
+          {
+            "text": "rise",
+            "expected_ms": 24500
+          }
+        ]
+      }
+    ]
+  },
+  "settings": {
+    "accent_insensitive": true,
+    "case_insensitive": true
+  },
+  "events": [
+    {
+      "type": "commit",
+      "t": 13000,
+      "word": 0,
+      "text": "hello"
+    },
+    {
+      "type": "commit",
+      "t": 15400,
+      "word": 1,
+      "text": "zzzz"
+    },
+    {
+      "type": "commit",
+      "t": 21929,
+      "word": 2,
+      "text": "sun"
+    }
+  ],
+  "expected": {
+    "result": {
+      "settings": {
+        "accent_insensitive": true,
+        "case_insensitive": true
+      },
+      "score": 80,
+      "accuracy_bp": 5000,
+      "hit_rate_bp": 5000,
+      "max_combo": 1,
+      "rank": "C",
+      "seeked": false,
+      "scorable_words": 4,
+      "hit_words": 2,
+      "max_base_score": 160,
+      "lines": [
+        {
+          "line": 0,
+          "points": 50,
+          "bonus": 0,
+          "words": [
+            {
+              "word": 0,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 5,
+                "den": 5
+              },
+              "points": 50
+            },
+            {
+              "word": 1,
+              "tier": "MISS",
+              "accuracy": {
+                "num": 0,
+                "den": 4
+              },
+              "points": 0
+            }
+          ]
+        },
+        {
+          "line": 1,
+          "points": 30,
+          "bonus": 0,
+          "words": [
+            {
+              "word": 2,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 30
+            },
+            {
+              "word": 3,
+              "tier": "MISS",
+              "accuracy": {
+                "num": 0,
+                "den": 1
+              },
+              "points": 0
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

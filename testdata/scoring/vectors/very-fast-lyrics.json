@@ -1,0 +1,359 @@
+{
+  "name": "very-fast-lyrics",
+  "description": "Twelve two-letter words in a 1000 ms line (expected times 10075, 10150, ... 10900, 75 ms apart), then a short line. Equal timestamps are allowed: word 2 is committed at the same playhead as word 1 (10150, delta -75, PERFECT). Every commit is PERFECT.",
+  "config": {
+    "lead_in_ms": 1500,
+    "miss_window_ms": 3500,
+    "min_accuracy_pct": 60,
+    "tier_perfect_limit_ms": 600,
+    "tier_great_limit_ms": 1200,
+    "tier_good_limit_ms": 2200,
+    "tier_ok_limit_ms": 3500,
+    "tier_perfect_pct": 100,
+    "tier_great_pct": 80,
+    "tier_good_pct": 55,
+    "tier_ok_pct": 30,
+    "tier_early_pct": 10,
+    "base_points_per_char": 10,
+    "combo_base_pct": 100,
+    "combo_step_words": 10,
+    "combo_step_pct": 25,
+    "combo_cap_pct": 200,
+    "combo_accuracy_pct": 80,
+    "line_bonus": 50,
+    "default_accent_insensitive": true,
+    "default_case_insensitive": true,
+    "rank_s_pct": 90,
+    "rank_a_pct": 75,
+    "rank_b_pct": 55,
+    "rank_c_pct": 35,
+    "expected_time_pct": 90,
+    "max_line_window_ms": 6000,
+    "last_line_window_ms": 5000,
+    "max_typed_chars": 64
+  },
+  "overrides": {},
+  "timeline": {
+    "lines": [
+      {
+        "start_ms": 10000,
+        "end_ms": 11000,
+        "text": "no mi la so re fa do si ba ta ke ru",
+        "words": [
+          {
+            "text": "no",
+            "expected_ms": 10075
+          },
+          {
+            "text": "mi",
+            "expected_ms": 10150
+          },
+          {
+            "text": "la",
+            "expected_ms": 10225
+          },
+          {
+            "text": "so",
+            "expected_ms": 10300
+          },
+          {
+            "text": "re",
+            "expected_ms": 10375
+          },
+          {
+            "text": "fa",
+            "expected_ms": 10450
+          },
+          {
+            "text": "do",
+            "expected_ms": 10525
+          },
+          {
+            "text": "si",
+            "expected_ms": 10600
+          },
+          {
+            "text": "ba",
+            "expected_ms": 10675
+          },
+          {
+            "text": "ta",
+            "expected_ms": 10750
+          },
+          {
+            "text": "ke",
+            "expected_ms": 10825
+          },
+          {
+            "text": "ru",
+            "expected_ms": 10900
+          }
+        ]
+      },
+      {
+        "start_ms": 11000,
+        "end_ms": 16000,
+        "text": "oh la",
+        "words": [
+          {
+            "text": "oh",
+            "expected_ms": 13250
+          },
+          {
+            "text": "la",
+            "expected_ms": 15500
+          }
+        ]
+      }
+    ]
+  },
+  "settings": {
+    "accent_insensitive": true,
+    "case_insensitive": true
+  },
+  "events": [
+    {
+      "type": "commit",
+      "t": 10075,
+      "word": 0,
+      "text": "no"
+    },
+    {
+      "type": "commit",
+      "t": 10150,
+      "word": 1,
+      "text": "mi"
+    },
+    {
+      "type": "commit",
+      "t": 10150,
+      "word": 2,
+      "text": "la"
+    },
+    {
+      "type": "commit",
+      "t": 10300,
+      "word": 3,
+      "text": "so"
+    },
+    {
+      "type": "commit",
+      "t": 10375,
+      "word": 4,
+      "text": "re"
+    },
+    {
+      "type": "commit",
+      "t": 10450,
+      "word": 5,
+      "text": "fa"
+    },
+    {
+      "type": "commit",
+      "t": 10525,
+      "word": 6,
+      "text": "do"
+    },
+    {
+      "type": "commit",
+      "t": 10600,
+      "word": 7,
+      "text": "si"
+    },
+    {
+      "type": "commit",
+      "t": 10675,
+      "word": 8,
+      "text": "ba"
+    },
+    {
+      "type": "commit",
+      "t": 10750,
+      "word": 9,
+      "text": "ta"
+    },
+    {
+      "type": "commit",
+      "t": 10825,
+      "word": 10,
+      "text": "ke"
+    },
+    {
+      "type": "commit",
+      "t": 10900,
+      "word": 11,
+      "text": "ru"
+    },
+    {
+      "type": "commit",
+      "t": 13250,
+      "word": 12,
+      "text": "oh"
+    },
+    {
+      "type": "commit",
+      "t": 15500,
+      "word": 13,
+      "text": "la"
+    }
+  ],
+  "expected": {
+    "result": {
+      "settings": {
+        "accent_insensitive": true,
+        "case_insensitive": true
+      },
+      "score": 400,
+      "accuracy_bp": 10000,
+      "hit_rate_bp": 10000,
+      "max_combo": 14,
+      "rank": "S",
+      "seeked": false,
+      "scorable_words": 14,
+      "hit_words": 14,
+      "max_base_score": 280,
+      "lines": [
+        {
+          "line": 0,
+          "points": 250,
+          "bonus": 50,
+          "words": [
+            {
+              "word": 0,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 2,
+                "den": 2
+              },
+              "points": 20
+            },
+            {
+              "word": 1,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 2,
+                "den": 2
+              },
+              "points": 20
+            },
+            {
+              "word": 2,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 2,
+                "den": 2
+              },
+              "points": 20
+            },
+            {
+              "word": 3,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 2,
+                "den": 2
+              },
+              "points": 20
+            },
+            {
+              "word": 4,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 2,
+                "den": 2
+              },
+              "points": 20
+            },
+            {
+              "word": 5,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 2,
+                "den": 2
+              },
+              "points": 20
+            },
+            {
+              "word": 6,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 2,
+                "den": 2
+              },
+              "points": 20
+            },
+            {
+              "word": 7,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 2,
+                "den": 2
+              },
+              "points": 20
+            },
+            {
+              "word": 8,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 2,
+                "den": 2
+              },
+              "points": 20
+            },
+            {
+              "word": 9,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 2,
+                "den": 2
+              },
+              "points": 20
+            },
+            {
+              "word": 10,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 2,
+                "den": 2
+              },
+              "points": 25
+            },
+            {
+              "word": 11,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 2,
+                "den": 2
+              },
+              "points": 25
+            }
+          ]
+        },
+        {
+          "line": 1,
+          "points": 50,
+          "bonus": 50,
+          "words": [
+            {
+              "word": 12,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 2,
+                "den": 2
+              },
+              "points": 25
+            },
+            {
+              "word": 13,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 2,
+                "den": 2
+              },
+              "points": 25
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

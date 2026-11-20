@@ -1,0 +1,197 @@
+{
+  "name": "accuracy-60-limit-and-just-below",
+  "description": "Accuracy against the 60 % MISS threshold, every commit at delta 0: 9/15 = 60 % exactly is accepted (9 x 100 >= 60 x 15, 900 >= 900), 8/15 = 53.3 % is just below and a MISS with 0 points (the accuracy is kept), hello/helxx is 3/5 = 60 % (accepted), hello/hexxx is 2/5 = 40 % (MISS). The word times are supplied (section 16 allows it) and do not follow the section 6 rule; they lie inside the line windows. Arithmetic: word 0 typed 'marvelousxxxxxx' delta 0 PERFECT(100) accuracy 9/15 combo 0(100): N = 10 x 15 x 9 x 100 x 100 = 13500000, D = 15 x 10000 = 150000, 13500000/150000 = 90.0000 -> 90; word 1 typed 'marvelouxxxxxxx': accuracy 8/15 below 60 % -> MISS, 0 points; word 2 typed 'helxx' delta 0 PERFECT(100) accuracy 3/5 combo 0(100): N = 10 x 5 x 3 x 100 x 100 = 1500000, D = 5 x 10000 = 50000, 1500000/50000 = 30.0000 -> 30; word 3 typed 'hexxx': accuracy 2/5 below 60 % -> MISS, 0 points.",
+  "config": {
+    "lead_in_ms": 1500,
+    "miss_window_ms": 3500,
+    "min_accuracy_pct": 60,
+    "tier_perfect_limit_ms": 600,
+    "tier_great_limit_ms": 1200,
+    "tier_good_limit_ms": 2200,
+    "tier_ok_limit_ms": 3500,
+    "tier_perfect_pct": 100,
+    "tier_great_pct": 80,
+    "tier_good_pct": 55,
+    "tier_ok_pct": 30,
+    "tier_early_pct": 10,
+    "base_points_per_char": 10,
+    "combo_base_pct": 100,
+    "combo_step_words": 10,
+    "combo_step_pct": 25,
+    "combo_cap_pct": 200,
+    "combo_accuracy_pct": 80,
+    "line_bonus": 50,
+    "default_accent_insensitive": true,
+    "default_case_insensitive": true,
+    "rank_s_pct": 90,
+    "rank_a_pct": 75,
+    "rank_b_pct": 55,
+    "rank_c_pct": 35,
+    "expected_time_pct": 90,
+    "max_line_window_ms": 6000,
+    "last_line_window_ms": 5000,
+    "max_typed_chars": 64
+  },
+  "overrides": {},
+  "timeline": {
+    "lines": [
+      {
+        "start_ms": 15000,
+        "end_ms": 21000,
+        "text": "marvelousnesses",
+        "words": [
+          {
+            "text": "marvelousnesses",
+            "expected_ms": 20000
+          }
+        ]
+      },
+      {
+        "start_ms": 25000,
+        "end_ms": 31000,
+        "text": "marvelousnesses",
+        "words": [
+          {
+            "text": "marvelousnesses",
+            "expected_ms": 30000
+          }
+        ]
+      },
+      {
+        "start_ms": 35000,
+        "end_ms": 41000,
+        "text": "hello",
+        "words": [
+          {
+            "text": "hello",
+            "expected_ms": 40000
+          }
+        ]
+      },
+      {
+        "start_ms": 45000,
+        "end_ms": 50000,
+        "text": "hello",
+        "words": [
+          {
+            "text": "hello",
+            "expected_ms": 50000
+          }
+        ]
+      }
+    ]
+  },
+  "settings": {
+    "accent_insensitive": true,
+    "case_insensitive": true
+  },
+  "events": [
+    {
+      "type": "commit",
+      "t": 20000,
+      "word": 0,
+      "text": "marvelousxxxxxx"
+    },
+    {
+      "type": "commit",
+      "t": 30000,
+      "word": 1,
+      "text": "marvelouxxxxxxx"
+    },
+    {
+      "type": "commit",
+      "t": 40000,
+      "word": 2,
+      "text": "helxx"
+    },
+    {
+      "type": "commit",
+      "t": 50000,
+      "word": 3,
+      "text": "hexxx"
+    }
+  ],
+  "expected": {
+    "result": {
+      "settings": {
+        "accent_insensitive": true,
+        "case_insensitive": true
+      },
+      "score": 120,
+      "accuracy_bp": 5333,
+      "hit_rate_bp": 5000,
+      "max_combo": 0,
+      "rank": "D",
+      "seeked": false,
+      "scorable_words": 4,
+      "hit_words": 2,
+      "max_base_score": 400,
+      "lines": [
+        {
+          "line": 0,
+          "points": 90,
+          "bonus": 0,
+          "words": [
+            {
+              "word": 0,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 9,
+                "den": 15
+              },
+              "points": 90
+            }
+          ]
+        },
+        {
+          "line": 1,
+          "points": 0,
+          "bonus": 0,
+          "words": [
+            {
+              "word": 1,
+              "tier": "MISS",
+              "accuracy": {
+                "num": 8,
+                "den": 15
+              },
+              "points": 0
+            }
+          ]
+        },
+        {
+          "line": 2,
+          "points": 30,
+          "bonus": 0,
+          "words": [
+            {
+              "word": 2,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 5
+              },
+              "points": 30
+            }
+          ]
+        },
+        {
+          "line": 3,
+          "points": 0,
+          "bonus": 0,
+          "words": [
+            {
+              "word": 3,
+              "tier": "MISS",
+              "accuracy": {
+                "num": 2,
+                "den": 5
+              },
+              "points": 0
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

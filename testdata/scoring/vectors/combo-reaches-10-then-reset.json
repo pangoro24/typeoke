@@ -1,0 +1,345 @@
+{
+  "name": "combo-reaches-10-then-reset",
+  "description": "One line of 14 three-letter words, each committed at its expected time. Words 0 to 9 are scored at combo multiplier 100 (30 points each), word 10 is the eleventh of the streak (combo 10, boundary belongs to the higher step, A7) at 125 (37.5 rounds half up to 38), word 11 is typed zzz (0/3, MISS, combo reset to 0), word 12 is back at 100 (30). max_combo is 11. The MISS denies the line bonus. Arithmetic: word 0 typed 'lam' delta 0 PERFECT(100) accuracy 3/3 combo 0(100): N = 10 x 3 x 3 x 100 x 100 = 900000, D = 3 x 10000 = 30000, 900000/30000 = 30.0000 -> 30; word 1 typed 'pir' delta 0 PERFECT(100) accuracy 3/3 combo 1(100): N = 10 x 3 x 3 x 100 x 100 = 900000, D = 3 x 10000 = 30000, 900000/30000 = 30.0000 -> 30; word 2 typed 'tos' delta 0 PERFECT(100) accuracy 3/3 combo 2(100): N = 10 x 3 x 3 x 100 x 100 = 900000, D = 3 x 10000 = 30000, 900000/30000 = 30.0000 -> 30; word 3 typed 'vek' delta 0 PERFECT(100) accuracy 3/3 combo 3(100): N = 10 x 3 x 3 x 100 x 100 = 900000, D = 3 x 10000 = 30000, 900000/30000 = 30.0000 -> 30; word 4 typed 'lam' delta 0 PERFECT(100) accuracy 3/3 combo 4(100): N = 10 x 3 x 3 x 100 x 100 = 900000, D = 3 x 10000 = 30000, 900000/30000 = 30.0000 -> 30; word 5 typed 'pir' delta 0 PERFECT(100) accuracy 3/3 combo 5(100): N = 10 x 3 x 3 x 100 x 100 = 900000, D = 3 x 10000 = 30000, 900000/30000 = 30.0000 -> 30; word 6 typed 'tos' delta 0 PERFECT(100) accuracy 3/3 combo 6(100): N = 10 x 3 x 3 x 100 x 100 = 900000, D = 3 x 10000 = 30000, 900000/30000 = 30.0000 -> 30; word 7 typed 'vek' delta 0 PERFECT(100) accuracy 3/3 combo 7(100): N = 10 x 3 x 3 x 100 x 100 = 900000, D = 3 x 10000 = 30000, 900000/30000 = 30.0000 -> 30; word 8 typed 'lam' delta 0 PERFECT(100) accuracy 3/3 combo 8(100): N = 10 x 3 x 3 x 100 x 100 = 900000, D = 3 x 10000 = 30000, 900000/30000 = 30.0000 -> 30; word 9 typed 'pir' delta 0 PERFECT(100) accuracy 3/3 combo 9(100): N = 10 x 3 x 3 x 100 x 100 = 900000, D = 3 x 10000 = 30000, 900000/30000 = 30.0000 -> 30; word 10 typed 'tos' delta 0 PERFECT(100) accuracy 3/3 combo 10(125): N = 10 x 3 x 3 x 100 x 125 = 1125000, D = 3 x 10000 = 30000, 1125000/30000 = 37.5000 -> 38; word 11 typed 'zzz': accuracy 0/3 below 60 % -> MISS, 0 points; word 12 typed 'lam' delta 0 PERFECT(100) accuracy 3/3 combo 0(100): N = 10 x 3 x 3 x 100 x 100 = 900000, D = 3 x 10000 = 30000, 900000/30000 = 30.0000 -> 30; word 13 typed 'pir' delta 0 PERFECT(100) accuracy 3/3 combo 1(100): N = 10 x 3 x 3 x 100 x 100 = 900000, D = 3 x 10000 = 30000, 900000/30000 = 30.0000 -> 30.",
+  "config": {
+    "lead_in_ms": 1500,
+    "miss_window_ms": 3500,
+    "min_accuracy_pct": 60,
+    "tier_perfect_limit_ms": 600,
+    "tier_great_limit_ms": 1200,
+    "tier_good_limit_ms": 2200,
+    "tier_ok_limit_ms": 3500,
+    "tier_perfect_pct": 100,
+    "tier_great_pct": 80,
+    "tier_good_pct": 55,
+    "tier_ok_pct": 30,
+    "tier_early_pct": 10,
+    "base_points_per_char": 10,
+    "combo_base_pct": 100,
+    "combo_step_words": 10,
+    "combo_step_pct": 25,
+    "combo_cap_pct": 200,
+    "combo_accuracy_pct": 80,
+    "line_bonus": 50,
+    "default_accent_insensitive": true,
+    "default_case_insensitive": true,
+    "rank_s_pct": 90,
+    "rank_a_pct": 75,
+    "rank_b_pct": 55,
+    "rank_c_pct": 35,
+    "expected_time_pct": 90,
+    "max_line_window_ms": 6000,
+    "last_line_window_ms": 5000,
+    "max_typed_chars": 64
+  },
+  "overrides": {},
+  "timeline": {
+    "lines": [
+      {
+        "start_ms": 10000,
+        "end_ms": 15000,
+        "text": "lam pir tos vek lam pir tos vek lam pir tos vek lam pir",
+        "words": [
+          {
+            "text": "lam",
+            "expected_ms": 10321
+          },
+          {
+            "text": "pir",
+            "expected_ms": 10643
+          },
+          {
+            "text": "tos",
+            "expected_ms": 10964
+          },
+          {
+            "text": "vek",
+            "expected_ms": 11286
+          },
+          {
+            "text": "lam",
+            "expected_ms": 11607
+          },
+          {
+            "text": "pir",
+            "expected_ms": 11929
+          },
+          {
+            "text": "tos",
+            "expected_ms": 12250
+          },
+          {
+            "text": "vek",
+            "expected_ms": 12571
+          },
+          {
+            "text": "lam",
+            "expected_ms": 12893
+          },
+          {
+            "text": "pir",
+            "expected_ms": 13214
+          },
+          {
+            "text": "tos",
+            "expected_ms": 13536
+          },
+          {
+            "text": "vek",
+            "expected_ms": 13857
+          },
+          {
+            "text": "lam",
+            "expected_ms": 14179
+          },
+          {
+            "text": "pir",
+            "expected_ms": 14500
+          }
+        ]
+      }
+    ]
+  },
+  "settings": {
+    "accent_insensitive": true,
+    "case_insensitive": true
+  },
+  "events": [
+    {
+      "type": "commit",
+      "t": 10321,
+      "word": 0,
+      "text": "lam"
+    },
+    {
+      "type": "commit",
+      "t": 10643,
+      "word": 1,
+      "text": "pir"
+    },
+    {
+      "type": "commit",
+      "t": 10964,
+      "word": 2,
+      "text": "tos"
+    },
+    {
+      "type": "commit",
+      "t": 11286,
+      "word": 3,
+      "text": "vek"
+    },
+    {
+      "type": "commit",
+      "t": 11607,
+      "word": 4,
+      "text": "lam"
+    },
+    {
+      "type": "commit",
+      "t": 11929,
+      "word": 5,
+      "text": "pir"
+    },
+    {
+      "type": "commit",
+      "t": 12250,
+      "word": 6,
+      "text": "tos"
+    },
+    {
+      "type": "commit",
+      "t": 12571,
+      "word": 7,
+      "text": "vek"
+    },
+    {
+      "type": "commit",
+      "t": 12893,
+      "word": 8,
+      "text": "lam"
+    },
+    {
+      "type": "commit",
+      "t": 13214,
+      "word": 9,
+      "text": "pir"
+    },
+    {
+      "type": "commit",
+      "t": 13536,
+      "word": 10,
+      "text": "tos"
+    },
+    {
+      "type": "commit",
+      "t": 13857,
+      "word": 11,
+      "text": "zzz"
+    },
+    {
+      "type": "commit",
+      "t": 14179,
+      "word": 12,
+      "text": "lam"
+    },
+    {
+      "type": "commit",
+      "t": 14500,
+      "word": 13,
+      "text": "pir"
+    }
+  ],
+  "expected": {
+    "result": {
+      "settings": {
+        "accent_insensitive": true,
+        "case_insensitive": true
+      },
+      "score": 398,
+      "accuracy_bp": 9286,
+      "hit_rate_bp": 9286,
+      "max_combo": 11,
+      "rank": "S",
+      "seeked": false,
+      "scorable_words": 14,
+      "hit_words": 13,
+      "max_base_score": 420,
+      "lines": [
+        {
+          "line": 0,
+          "points": 398,
+          "bonus": 0,
+          "words": [
+            {
+              "word": 0,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 30
+            },
+            {
+              "word": 1,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 30
+            },
+            {
+              "word": 2,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 30
+            },
+            {
+              "word": 3,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 30
+            },
+            {
+              "word": 4,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 30
+            },
+            {
+              "word": 5,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 30
+            },
+            {
+              "word": 6,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 30
+            },
+            {
+              "word": 7,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 30
+            },
+            {
+              "word": 8,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 30
+            },
+            {
+              "word": 9,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 30
+            },
+            {
+              "word": 10,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 38
+            },
+            {
+              "word": 11,
+              "tier": "MISS",
+              "accuracy": {
+                "num": 0,
+                "den": 3
+              },
+              "points": 0
+            },
+            {
+              "word": 12,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 30
+            },
+            {
+              "word": 13,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 30
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

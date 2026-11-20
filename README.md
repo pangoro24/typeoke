@@ -40,8 +40,7 @@ uv --directory src/backend run pytest --cov --cov-fail-under=85
 
 Second coverage gate, 100 % of `typeoke_core/scoring.py` and
 `typeoke_core/timeline.py` (run after the pytest command, which writes the
-coverage data). It is enabled in task 3.4; until those files exist it reports
-"No data to report" and exits 1, so it is not part of the CI before then:
+coverage data). It is also a step of the CI python job:
 
 ```
 uv --directory src/backend run coverage report --include="typeoke_core/scoring.py,typeoke_core/timeline.py" --fail-under=100

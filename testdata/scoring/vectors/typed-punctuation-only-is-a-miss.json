@@ -1,0 +1,117 @@
+{
+  "name": "typed-punctuation-only-is-a-miss",
+  "description": "A typed text that normalizes to empty (!!!) is a real commit, not an empty one (D16): d = L = 5, accuracy 0/5, tier MISS, 0 points, combo reset, and the word still advances. The next word is scored normally. Arithmetic: word 0 typed '!!!': accuracy 0/5 below 60 % -> MISS, 0 points; word 1 typed 'moon' delta 0 PERFECT(100) accuracy 4/4 combo 0(100): N = 10 x 4 x 4 x 100 x 100 = 1600000, D = 4 x 10000 = 40000, 1600000/40000 = 40.0000 -> 40.",
+  "config": {
+    "lead_in_ms": 1500,
+    "miss_window_ms": 3500,
+    "min_accuracy_pct": 60,
+    "tier_perfect_limit_ms": 600,
+    "tier_great_limit_ms": 1200,
+    "tier_good_limit_ms": 2200,
+    "tier_ok_limit_ms": 3500,
+    "tier_perfect_pct": 100,
+    "tier_great_pct": 80,
+    "tier_good_pct": 55,
+    "tier_ok_pct": 30,
+    "tier_early_pct": 10,
+    "base_points_per_char": 10,
+    "combo_base_pct": 100,
+    "combo_step_words": 10,
+    "combo_step_pct": 25,
+    "combo_cap_pct": 200,
+    "combo_accuracy_pct": 80,
+    "line_bonus": 50,
+    "default_accent_insensitive": true,
+    "default_case_insensitive": true,
+    "rank_s_pct": 90,
+    "rank_a_pct": 75,
+    "rank_b_pct": 55,
+    "rank_c_pct": 35,
+    "expected_time_pct": 90,
+    "max_line_window_ms": 6000,
+    "last_line_window_ms": 5000,
+    "max_typed_chars": 64
+  },
+  "overrides": {},
+  "timeline": {
+    "lines": [
+      {
+        "start_ms": 10000,
+        "end_ms": 15000,
+        "text": "hello moon",
+        "words": [
+          {
+            "text": "hello",
+            "expected_ms": 12500
+          },
+          {
+            "text": "moon",
+            "expected_ms": 14500
+          }
+        ]
+      }
+    ]
+  },
+  "settings": {
+    "accent_insensitive": true,
+    "case_insensitive": true
+  },
+  "events": [
+    {
+      "type": "commit",
+      "t": 12500,
+      "word": 0,
+      "text": "!!!"
+    },
+    {
+      "type": "commit",
+      "t": 14500,
+      "word": 1,
+      "text": "moon"
+    }
+  ],
+  "expected": {
+    "result": {
+      "settings": {
+        "accent_insensitive": true,
+        "case_insensitive": true
+      },
+      "score": 40,
+      "accuracy_bp": 5000,
+      "hit_rate_bp": 5000,
+      "max_combo": 1,
+      "rank": "C",
+      "seeked": false,
+      "scorable_words": 2,
+      "hit_words": 1,
+      "max_base_score": 90,
+      "lines": [
+        {
+          "line": 0,
+          "points": 40,
+          "bonus": 0,
+          "words": [
+            {
+              "word": 0,
+              "tier": "MISS",
+              "accuracy": {
+                "num": 0,
+                "den": 5
+              },
+              "points": 0
+            },
+            {
+              "word": 1,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 4,
+                "den": 4
+              },
+              "points": 40
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,247 @@
+{
+  "name": "worked-play-section-14-6",
+  "description": "The worked example of section 14.6 of the rule book, event by event: hello PERFECT 50; bright 4/6 at +700 GREAT 32; moon at +3500 OK 12; SKY! at -3174 OK 9; up at -3501 EARLY 2; la PERFECT 20 at combo 1; words 6 and 7 MISS. Lines: 94 (no bonus), 11 + bonus 50, 20. Score 175, max_combo 2, accuracy 17/3 over 8 words = 7083 bp, hit rate 7500 bp, max_base_score 260, rank B. Arithmetic: word 0 typed 'Hello' delta -500 PERFECT(100) accuracy 5/5 combo 0(100): N = 10 x 5 x 5 x 100 x 100 = 2500000, D = 5 x 10000 = 50000, 2500000/50000 = 50.0000 -> 50; word 1 typed 'brigth' delta 700 GREAT(80) accuracy 4/6 combo 1(100): N = 10 x 6 x 4 x 80 x 100 = 1920000, D = 6 x 10000 = 60000, 1920000/60000 = 32.0000 -> 32; word 2 typed 'moon' delta 3500 OK(30) accuracy 4/4 combo 1(100): N = 10 x 4 x 4 x 30 x 100 = 480000, D = 4 x 10000 = 40000, 480000/40000 = 12.0000 -> 12; word 3 typed 'SKY!' delta -3174 OK(30) accuracy 3/3 combo 1(100): N = 10 x 3 x 3 x 30 x 100 = 270000, D = 3 x 10000 = 30000, 270000/30000 = 9.0000 -> 9; word 4 typed 'up' delta -3501 EARLY(10) accuracy 2/2 combo 1(100): N = 10 x 2 x 2 x 10 x 100 = 40000, D = 2 x 10000 = 20000, 40000/20000 = 2.0000 -> 2; word 5 typed 'la' delta 0 PERFECT(100) accuracy 2/2 combo 1(100): N = 10 x 2 x 2 x 100 x 100 = 400000, D = 2 x 10000 = 20000, 400000/20000 = 20.0000 -> 20.",
+  "config": {
+    "lead_in_ms": 1500,
+    "miss_window_ms": 3500,
+    "min_accuracy_pct": 60,
+    "tier_perfect_limit_ms": 600,
+    "tier_great_limit_ms": 1200,
+    "tier_good_limit_ms": 2200,
+    "tier_ok_limit_ms": 3500,
+    "tier_perfect_pct": 100,
+    "tier_great_pct": 80,
+    "tier_good_pct": 55,
+    "tier_ok_pct": 30,
+    "tier_early_pct": 10,
+    "base_points_per_char": 10,
+    "combo_base_pct": 100,
+    "combo_step_words": 10,
+    "combo_step_pct": 25,
+    "combo_cap_pct": 200,
+    "combo_accuracy_pct": 80,
+    "line_bonus": 50,
+    "default_accent_insensitive": true,
+    "default_case_insensitive": true,
+    "rank_s_pct": 90,
+    "rank_a_pct": 75,
+    "rank_b_pct": 55,
+    "rank_c_pct": 35,
+    "expected_time_pct": 90,
+    "max_line_window_ms": 6000,
+    "last_line_window_ms": 5000,
+    "max_typed_chars": 64
+  },
+  "overrides": {},
+  "timeline": {
+    "lines": [
+      {
+        "start_ms": 10000,
+        "end_ms": 16000,
+        "text": "Hello, bright moon",
+        "words": [
+          {
+            "text": "Hello,",
+            "expected_ms": 11800
+          },
+          {
+            "text": "bright",
+            "expected_ms": 13960
+          },
+          {
+            "text": "moon",
+            "expected_ms": 15400
+          }
+        ]
+      },
+      {
+        "start_ms": 20000,
+        "end_ms": 24025,
+        "text": "Sky up",
+        "words": [
+          {
+            "text": "Sky",
+            "expected_ms": 22174
+          },
+          {
+            "text": "up",
+            "expected_ms": 23623
+          }
+        ]
+      },
+      {
+        "start_ms": 24025,
+        "end_ms": 29025,
+        "text": "La la la",
+        "words": [
+          {
+            "text": "La",
+            "expected_ms": 25525
+          },
+          {
+            "text": "la",
+            "expected_ms": 27025
+          },
+          {
+            "text": "la",
+            "expected_ms": 28525
+          }
+        ]
+      }
+    ]
+  },
+  "settings": {
+    "accent_insensitive": true,
+    "case_insensitive": true
+  },
+  "events": [
+    {
+      "type": "commit",
+      "t": 11300,
+      "word": 0,
+      "text": "Hello"
+    },
+    {
+      "type": "commit",
+      "t": 14660,
+      "word": 1,
+      "text": "brigth"
+    },
+    {
+      "type": "commit",
+      "t": 18900,
+      "word": 2,
+      "text": "moon"
+    },
+    {
+      "type": "commit",
+      "t": 19000,
+      "word": 3,
+      "text": "SKY!"
+    },
+    {
+      "type": "commit",
+      "t": 20122,
+      "word": 4,
+      "text": "up"
+    },
+    {
+      "type": "commit",
+      "t": 25525,
+      "word": 5,
+      "text": "la"
+    }
+  ],
+  "expected": {
+    "result": {
+      "settings": {
+        "accent_insensitive": true,
+        "case_insensitive": true
+      },
+      "score": 175,
+      "accuracy_bp": 7083,
+      "hit_rate_bp": 7500,
+      "max_combo": 2,
+      "rank": "B",
+      "seeked": false,
+      "scorable_words": 8,
+      "hit_words": 6,
+      "max_base_score": 260,
+      "lines": [
+        {
+          "line": 0,
+          "points": 94,
+          "bonus": 0,
+          "words": [
+            {
+              "word": 0,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 5,
+                "den": 5
+              },
+              "points": 50
+            },
+            {
+              "word": 1,
+              "tier": "GREAT",
+              "accuracy": {
+                "num": 4,
+                "den": 6
+              },
+              "points": 32
+            },
+            {
+              "word": 2,
+              "tier": "OK",
+              "accuracy": {
+                "num": 4,
+                "den": 4
+              },
+              "points": 12
+            }
+          ]
+        },
+        {
+          "line": 1,
+          "points": 11,
+          "bonus": 50,
+          "words": [
+            {
+              "word": 3,
+              "tier": "OK",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 9
+            },
+            {
+              "word": 4,
+              "tier": "EARLY",
+              "accuracy": {
+                "num": 2,
+                "den": 2
+              },
+              "points": 2
+            }
+          ]
+        },
+        {
+          "line": 2,
+          "points": 20,
+          "bonus": 0,
+          "words": [
+            {
+              "word": 5,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 2,
+                "den": 2
+              },
+              "points": 20
+            },
+            {
+              "word": 6,
+              "tier": "MISS",
+              "accuracy": {
+                "num": 0,
+                "den": 1
+              },
+              "points": 0
+            },
+            {
+              "word": 7,
+              "tier": "MISS",
+              "accuracy": {
+                "num": 0,
+                "den": 1
+              },
+              "points": 0
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

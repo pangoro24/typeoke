@@ -1,0 +1,136 @@
+{
+  "name": "accented-song-case-off",
+  "description": "Song of accented words, expected Canción, ñandú, Sí (song lengths 7, 5, 2; max_base_score 140 under every setting) typed cancion, nandu, si on time. Case option off (accent on): the capital letters of Canción and Sí must be typed, so cancion is 6/7 and si is 1/2 (50 %, below 60 %: MISS); ñandú/nandu is exact. Arithmetic: word 0 typed 'cancion' delta 0 PERFECT(100) accuracy 6/7 combo 0(100): N = 10 x 7 x 6 x 100 x 100 = 4200000, D = 7 x 10000 = 70000, 4200000/70000 = 60.0000 -> 60; word 1 typed 'nandu' delta 0 PERFECT(100) accuracy 5/5 combo 1(100): N = 10 x 5 x 5 x 100 x 100 = 2500000, D = 5 x 10000 = 50000, 2500000/50000 = 50.0000 -> 50; word 2 typed 'si': accuracy 1/2 below 60 % -> MISS, 0 points.",
+  "config": {
+    "lead_in_ms": 1500,
+    "miss_window_ms": 3500,
+    "min_accuracy_pct": 60,
+    "tier_perfect_limit_ms": 600,
+    "tier_great_limit_ms": 1200,
+    "tier_good_limit_ms": 2200,
+    "tier_ok_limit_ms": 3500,
+    "tier_perfect_pct": 100,
+    "tier_great_pct": 80,
+    "tier_good_pct": 55,
+    "tier_ok_pct": 30,
+    "tier_early_pct": 10,
+    "base_points_per_char": 10,
+    "combo_base_pct": 100,
+    "combo_step_words": 10,
+    "combo_step_pct": 25,
+    "combo_cap_pct": 200,
+    "combo_accuracy_pct": 80,
+    "line_bonus": 50,
+    "default_accent_insensitive": true,
+    "default_case_insensitive": true,
+    "rank_s_pct": 90,
+    "rank_a_pct": 75,
+    "rank_b_pct": 55,
+    "rank_c_pct": 35,
+    "expected_time_pct": 90,
+    "max_line_window_ms": 6000,
+    "last_line_window_ms": 5000,
+    "max_typed_chars": 64
+  },
+  "overrides": {},
+  "timeline": {
+    "lines": [
+      {
+        "start_ms": 20000,
+        "end_ms": 25000,
+        "text": "Canción ñandú Sí",
+        "words": [
+          {
+            "text": "Canción",
+            "expected_ms": 22250
+          },
+          {
+            "text": "ñandú",
+            "expected_ms": 23857
+          },
+          {
+            "text": "Sí",
+            "expected_ms": 24500
+          }
+        ]
+      }
+    ]
+  },
+  "settings": {
+    "accent_insensitive": true,
+    "case_insensitive": false
+  },
+  "events": [
+    {
+      "type": "commit",
+      "t": 22250,
+      "word": 0,
+      "text": "cancion"
+    },
+    {
+      "type": "commit",
+      "t": 23857,
+      "word": 1,
+      "text": "nandu"
+    },
+    {
+      "type": "commit",
+      "t": 24500,
+      "word": 2,
+      "text": "si"
+    }
+  ],
+  "expected": {
+    "result": {
+      "settings": {
+        "accent_insensitive": true,
+        "case_insensitive": false
+      },
+      "score": 110,
+      "accuracy_bp": 7857,
+      "hit_rate_bp": 6667,
+      "max_combo": 2,
+      "rank": "A",
+      "seeked": false,
+      "scorable_words": 3,
+      "hit_words": 2,
+      "max_base_score": 140,
+      "lines": [
+        {
+          "line": 0,
+          "points": 110,
+          "bonus": 0,
+          "words": [
+            {
+              "word": 0,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 6,
+                "den": 7
+              },
+              "points": 60
+            },
+            {
+              "word": 1,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 5,
+                "den": 5
+              },
+              "points": 50
+            },
+            {
+              "word": 2,
+              "tier": "MISS",
+              "accuracy": {
+                "num": 1,
+                "den": 2
+              },
+              "points": 0
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -35,8 +35,10 @@ jobs:
         run: uv --directory src/backend run mypy --strict
       - name: Tests and overall coverage
         run: uv --directory src/backend run pytest --cov --cov-fail-under=85
-      # The 100 % coverage gate of scoring.py and timeline.py (see README, Python)
-      # is added by task 3.4, when those files exist.
+      - name: Scoring modules coverage (100 %)
+        run: >-
+          uv --directory src/backend run coverage report
+          --include="typeoke_core/scoring.py,typeoke_core/timeline.py" --fail-under=100
       - name: Text files and content
         run: python3 scripts/check_text_files.py
 

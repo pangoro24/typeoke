@@ -1,0 +1,565 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Typeoke golden scoring vector",
+  "description": "One file of testdata/scoring/vectors/ (section 17 of docs/scoring.md). The events and settings fields are only constrained as stated there, so that malformed input can be a vector. JSON Schema treats 1.0 as an integer; the runners reject every float (no fraction or exponent, D22) before validating, so the schema alone does not enforce it.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "config": {
+      "type": "object",
+      "properties": {
+        "lead_in_ms": {
+          "$ref": "#/$defs/uint"
+        },
+        "miss_window_ms": {
+          "$ref": "#/$defs/uint"
+        },
+        "min_accuracy_pct": {
+          "$ref": "#/$defs/uint"
+        },
+        "tier_perfect_limit_ms": {
+          "$ref": "#/$defs/uint"
+        },
+        "tier_great_limit_ms": {
+          "$ref": "#/$defs/uint"
+        },
+        "tier_good_limit_ms": {
+          "$ref": "#/$defs/uint"
+        },
+        "tier_ok_limit_ms": {
+          "$ref": "#/$defs/uint"
+        },
+        "tier_perfect_pct": {
+          "$ref": "#/$defs/uint"
+        },
+        "tier_great_pct": {
+          "$ref": "#/$defs/uint"
+        },
+        "tier_good_pct": {
+          "$ref": "#/$defs/uint"
+        },
+        "tier_ok_pct": {
+          "$ref": "#/$defs/uint"
+        },
+        "tier_early_pct": {
+          "$ref": "#/$defs/uint"
+        },
+        "base_points_per_char": {
+          "$ref": "#/$defs/uint"
+        },
+        "combo_base_pct": {
+          "$ref": "#/$defs/uint"
+        },
+        "combo_step_words": {
+          "$ref": "#/$defs/uint"
+        },
+        "combo_step_pct": {
+          "$ref": "#/$defs/uint"
+        },
+        "combo_cap_pct": {
+          "$ref": "#/$defs/uint"
+        },
+        "combo_accuracy_pct": {
+          "$ref": "#/$defs/uint"
+        },
+        "line_bonus": {
+          "$ref": "#/$defs/uint"
+        },
+        "default_accent_insensitive": {
+          "type": "boolean"
+        },
+        "default_case_insensitive": {
+          "type": "boolean"
+        },
+        "rank_s_pct": {
+          "$ref": "#/$defs/uint"
+        },
+        "rank_a_pct": {
+          "$ref": "#/$defs/uint"
+        },
+        "rank_b_pct": {
+          "$ref": "#/$defs/uint"
+        },
+        "rank_c_pct": {
+          "$ref": "#/$defs/uint"
+        },
+        "expected_time_pct": {
+          "$ref": "#/$defs/uint"
+        },
+        "max_line_window_ms": {
+          "$ref": "#/$defs/uint"
+        },
+        "last_line_window_ms": {
+          "$ref": "#/$defs/uint"
+        },
+        "max_typed_chars": {
+          "$ref": "#/$defs/uint"
+        }
+      },
+      "required": [
+        "lead_in_ms",
+        "miss_window_ms",
+        "min_accuracy_pct",
+        "tier_perfect_limit_ms",
+        "tier_great_limit_ms",
+        "tier_good_limit_ms",
+        "tier_ok_limit_ms",
+        "tier_perfect_pct",
+        "tier_great_pct",
+        "tier_good_pct",
+        "tier_ok_pct",
+        "tier_early_pct",
+        "base_points_per_char",
+        "combo_base_pct",
+        "combo_step_words",
+        "combo_step_pct",
+        "combo_cap_pct",
+        "combo_accuracy_pct",
+        "line_bonus",
+        "default_accent_insensitive",
+        "default_case_insensitive",
+        "rank_s_pct",
+        "rank_a_pct",
+        "rank_b_pct",
+        "rank_c_pct",
+        "expected_time_pct",
+        "max_line_window_ms",
+        "last_line_window_ms",
+        "max_typed_chars"
+      ],
+      "additionalProperties": false
+    },
+    "overrides": {
+      "type": "object",
+      "properties": {
+        "lead_in_ms": {
+          "$ref": "#/$defs/uint"
+        },
+        "miss_window_ms": {
+          "$ref": "#/$defs/uint"
+        },
+        "min_accuracy_pct": {
+          "$ref": "#/$defs/uint"
+        },
+        "tier_perfect_limit_ms": {
+          "$ref": "#/$defs/uint"
+        },
+        "tier_great_limit_ms": {
+          "$ref": "#/$defs/uint"
+        },
+        "tier_good_limit_ms": {
+          "$ref": "#/$defs/uint"
+        },
+        "tier_ok_limit_ms": {
+          "$ref": "#/$defs/uint"
+        },
+        "tier_perfect_pct": {
+          "$ref": "#/$defs/uint"
+        },
+        "tier_great_pct": {
+          "$ref": "#/$defs/uint"
+        },
+        "tier_good_pct": {
+          "$ref": "#/$defs/uint"
+        },
+        "tier_ok_pct": {
+          "$ref": "#/$defs/uint"
+        },
+        "tier_early_pct": {
+          "$ref": "#/$defs/uint"
+        },
+        "base_points_per_char": {
+          "$ref": "#/$defs/uint"
+        },
+        "combo_base_pct": {
+          "$ref": "#/$defs/uint"
+        },
+        "combo_step_words": {
+          "$ref": "#/$defs/uint"
+        },
+        "combo_step_pct": {
+          "$ref": "#/$defs/uint"
+        },
+        "combo_cap_pct": {
+          "$ref": "#/$defs/uint"
+        },
+        "combo_accuracy_pct": {
+          "$ref": "#/$defs/uint"
+        },
+        "line_bonus": {
+          "$ref": "#/$defs/uint"
+        },
+        "rank_s_pct": {
+          "$ref": "#/$defs/uint"
+        },
+        "rank_a_pct": {
+          "$ref": "#/$defs/uint"
+        },
+        "rank_b_pct": {
+          "$ref": "#/$defs/uint"
+        },
+        "rank_c_pct": {
+          "$ref": "#/$defs/uint"
+        },
+        "expected_time_pct": {
+          "$ref": "#/$defs/uint"
+        },
+        "max_line_window_ms": {
+          "$ref": "#/$defs/uint"
+        },
+        "last_line_window_ms": {
+          "$ref": "#/$defs/uint"
+        },
+        "max_typed_chars": {
+          "$ref": "#/$defs/uint"
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "timeline": {
+      "$ref": "#/$defs/timeline"
+    },
+    "settings": true,
+    "events": {
+      "type": "array"
+    },
+    "expected": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "result": {
+              "$ref": "#/$defs/result"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "rejection": {
+              "$ref": "#/$defs/rejection"
+            }
+          },
+          "required": [
+            "rejection"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    }
+  },
+  "required": [
+    "name",
+    "description",
+    "config",
+    "overrides",
+    "timeline",
+    "settings",
+    "events",
+    "expected"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "expected": {
+            "required": [
+              "result"
+            ]
+          }
+        },
+        "required": [
+          "expected"
+        ]
+      },
+      "then": {
+        "properties": {
+          "settings": {
+            "$ref": "#/$defs/settings"
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "uint": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "settings": {
+      "type": "object",
+      "properties": {
+        "accent_insensitive": {
+          "type": "boolean"
+        },
+        "case_insensitive": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "accent_insensitive",
+        "case_insensitive"
+      ],
+      "additionalProperties": false
+    },
+    "timeline": {
+      "type": "object",
+      "properties": {
+        "lines": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "start_ms": {
+                "$ref": "#/$defs/uint"
+              },
+              "end_ms": {
+                "$ref": "#/$defs/uint"
+              },
+              "text": {
+                "type": "string"
+              },
+              "words": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "text": {
+                      "type": "string",
+                      "pattern": "^[^\\t-\\r \\u0085\\u00a0\\u1680\\u2000-\\u200a\\u2028\\u2029\\u202f\\u205f\\u3000]+$"
+                    },
+                    "expected_ms": {
+                      "oneOf": [
+                        {
+                          "$ref": "#/$defs/uint"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "text",
+                    "expected_ms"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "start_ms",
+              "end_ms",
+              "text",
+              "words"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "lines"
+      ],
+      "additionalProperties": false
+    },
+    "rejection": {
+      "type": "object",
+      "properties": {
+        "reason": {
+          "enum": [
+            "MALFORMED_PLAY_SETTINGS",
+            "MALFORMED_EVENT_LOG",
+            "NON_MONOTONIC_TIME",
+            "INCONSISTENT_WORD_INDEX"
+          ]
+        },
+        "event_index": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/uint"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "reason",
+        "event_index"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "reason": {
+                "const": "MALFORMED_PLAY_SETTINGS"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "event_index": {
+                "type": "null"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "event_index": {
+                "$ref": "#/$defs/uint"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "result": {
+      "type": "object",
+      "properties": {
+        "settings": {
+          "$ref": "#/$defs/settings"
+        },
+        "score": {
+          "$ref": "#/$defs/uint"
+        },
+        "accuracy_bp": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000
+        },
+        "hit_rate_bp": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000
+        },
+        "max_combo": {
+          "$ref": "#/$defs/uint"
+        },
+        "rank": {
+          "enum": [
+            "S",
+            "A",
+            "B",
+            "C",
+            "D"
+          ]
+        },
+        "seeked": {
+          "type": "boolean"
+        },
+        "scorable_words": {
+          "$ref": "#/$defs/uint"
+        },
+        "hit_words": {
+          "$ref": "#/$defs/uint"
+        },
+        "max_base_score": {
+          "$ref": "#/$defs/uint"
+        },
+        "lines": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "line": {
+                "$ref": "#/$defs/uint"
+              },
+              "points": {
+                "$ref": "#/$defs/uint"
+              },
+              "bonus": {
+                "$ref": "#/$defs/uint"
+              },
+              "words": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "word": {
+                      "$ref": "#/$defs/uint"
+                    },
+                    "tier": {
+                      "enum": [
+                        "PERFECT",
+                        "GREAT",
+                        "GOOD",
+                        "OK",
+                        "EARLY",
+                        "MISS"
+                      ]
+                    },
+                    "accuracy": {
+                      "type": "object",
+                      "properties": {
+                        "num": {
+                          "$ref": "#/$defs/uint"
+                        },
+                        "den": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 9007199254740991
+                        }
+                      },
+                      "required": [
+                        "num",
+                        "den"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "points": {
+                      "$ref": "#/$defs/uint"
+                    }
+                  },
+                  "required": [
+                    "word",
+                    "tier",
+                    "accuracy",
+                    "points"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "line",
+              "points",
+              "bonus",
+              "words"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "settings",
+        "score",
+        "accuracy_bp",
+        "hit_rate_bp",
+        "max_combo",
+        "rank",
+        "seeked",
+        "scorable_words",
+        "hit_words",
+        "max_base_score",
+        "lines"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

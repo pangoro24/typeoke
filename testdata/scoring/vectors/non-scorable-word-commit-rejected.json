@@ -1,0 +1,100 @@
+{
+  "name": "non-scorable-word-commit-rejected",
+  "description": "A commit to a word that is not scorable (D9): after oh the current word is 2, word 1 (the em dash) is never current, although index 1 is inside the song and the log is well formed: INCONSISTENT_WORD_INDEX at index 1.",
+  "config": {
+    "lead_in_ms": 1500,
+    "miss_window_ms": 3500,
+    "min_accuracy_pct": 60,
+    "tier_perfect_limit_ms": 600,
+    "tier_great_limit_ms": 1200,
+    "tier_good_limit_ms": 2200,
+    "tier_ok_limit_ms": 3500,
+    "tier_perfect_pct": 100,
+    "tier_great_pct": 80,
+    "tier_good_pct": 55,
+    "tier_ok_pct": 30,
+    "tier_early_pct": 10,
+    "base_points_per_char": 10,
+    "combo_base_pct": 100,
+    "combo_step_words": 10,
+    "combo_step_pct": 25,
+    "combo_cap_pct": 200,
+    "combo_accuracy_pct": 80,
+    "line_bonus": 50,
+    "default_accent_insensitive": true,
+    "default_case_insensitive": true,
+    "rank_s_pct": 90,
+    "rank_a_pct": 75,
+    "rank_b_pct": 55,
+    "rank_c_pct": 35,
+    "expected_time_pct": 90,
+    "max_line_window_ms": 6000,
+    "last_line_window_ms": 5000,
+    "max_typed_chars": 64
+  },
+  "overrides": {},
+  "timeline": {
+    "lines": [
+      {
+        "start_ms": 38000,
+        "end_ms": 40000,
+        "text": "",
+        "words": []
+      },
+      {
+        "start_ms": 40000,
+        "end_ms": 44000,
+        "text": "Oh — yes",
+        "words": [
+          {
+            "text": "Oh",
+            "expected_ms": 41440
+          },
+          {
+            "text": "—",
+            "expected_ms": null
+          },
+          {
+            "text": "yes",
+            "expected_ms": 43600
+          }
+        ]
+      },
+      {
+        "start_ms": 44000,
+        "end_ms": 49000,
+        "text": "la",
+        "words": [
+          {
+            "text": "la",
+            "expected_ms": 48500
+          }
+        ]
+      }
+    ]
+  },
+  "settings": {
+    "accent_insensitive": true,
+    "case_insensitive": true
+  },
+  "events": [
+    {
+      "type": "commit",
+      "t": 41440,
+      "word": 0,
+      "text": "oh"
+    },
+    {
+      "type": "commit",
+      "t": 42000,
+      "word": 1,
+      "text": "x"
+    }
+  ],
+  "expected": {
+    "rejection": {
+      "reason": "INCONSISTENT_WORD_INDEX",
+      "event_index": 1
+    }
+  }
+}

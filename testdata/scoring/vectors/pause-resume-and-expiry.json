@@ -1,0 +1,231 @@
+{
+  "name": "pause-resume-and-expiry",
+  "description": "Pause and resume have no effect (section 13 example): hello PERFECT 50 at 11800, pause and resume at 14000, then sky at 19000 after bright and moon expired (19000 - 13960 = 5040 and 19000 - 15400 = 3600, both above 3500); sky at delta -3174 is OK, 9 points. Words 4 to 7 are MISS at the end. Score 59, max_combo 1. Arithmetic: word 0 typed 'hello' delta 0 PERFECT(100) accuracy 5/5 combo 0(100): N = 10 x 5 x 5 x 100 x 100 = 2500000, D = 5 x 10000 = 50000, 2500000/50000 = 50.0000 -> 50; word 1 expired at 19000 (19000 - 13960 = 5040 > 3500); word 2 expired at 19000 (19000 - 15400 = 3600 > 3500); word 3 typed 'sky' delta -3174 OK(30) accuracy 3/3 combo 0(100): N = 10 x 3 x 3 x 30 x 100 = 270000, D = 3 x 10000 = 30000, 270000/30000 = 9.0000 -> 9.",
+  "config": {
+    "lead_in_ms": 1500,
+    "miss_window_ms": 3500,
+    "min_accuracy_pct": 60,
+    "tier_perfect_limit_ms": 600,
+    "tier_great_limit_ms": 1200,
+    "tier_good_limit_ms": 2200,
+    "tier_ok_limit_ms": 3500,
+    "tier_perfect_pct": 100,
+    "tier_great_pct": 80,
+    "tier_good_pct": 55,
+    "tier_ok_pct": 30,
+    "tier_early_pct": 10,
+    "base_points_per_char": 10,
+    "combo_base_pct": 100,
+    "combo_step_words": 10,
+    "combo_step_pct": 25,
+    "combo_cap_pct": 200,
+    "combo_accuracy_pct": 80,
+    "line_bonus": 50,
+    "default_accent_insensitive": true,
+    "default_case_insensitive": true,
+    "rank_s_pct": 90,
+    "rank_a_pct": 75,
+    "rank_b_pct": 55,
+    "rank_c_pct": 35,
+    "expected_time_pct": 90,
+    "max_line_window_ms": 6000,
+    "last_line_window_ms": 5000,
+    "max_typed_chars": 64
+  },
+  "overrides": {},
+  "timeline": {
+    "lines": [
+      {
+        "start_ms": 10000,
+        "end_ms": 16000,
+        "text": "Hello, bright moon",
+        "words": [
+          {
+            "text": "Hello,",
+            "expected_ms": 11800
+          },
+          {
+            "text": "bright",
+            "expected_ms": 13960
+          },
+          {
+            "text": "moon",
+            "expected_ms": 15400
+          }
+        ]
+      },
+      {
+        "start_ms": 20000,
+        "end_ms": 24025,
+        "text": "Sky up",
+        "words": [
+          {
+            "text": "Sky",
+            "expected_ms": 22174
+          },
+          {
+            "text": "up",
+            "expected_ms": 23623
+          }
+        ]
+      },
+      {
+        "start_ms": 24025,
+        "end_ms": 29025,
+        "text": "La la la",
+        "words": [
+          {
+            "text": "La",
+            "expected_ms": 25525
+          },
+          {
+            "text": "la",
+            "expected_ms": 27025
+          },
+          {
+            "text": "la",
+            "expected_ms": 28525
+          }
+        ]
+      }
+    ]
+  },
+  "settings": {
+    "accent_insensitive": true,
+    "case_insensitive": true
+  },
+  "events": [
+    {
+      "type": "commit",
+      "t": 11800,
+      "word": 0,
+      "text": "hello"
+    },
+    {
+      "type": "pause",
+      "t": 14000
+    },
+    {
+      "type": "resume",
+      "t": 14000
+    },
+    {
+      "type": "commit",
+      "t": 19000,
+      "word": 3,
+      "text": "sky"
+    }
+  ],
+  "expected": {
+    "result": {
+      "settings": {
+        "accent_insensitive": true,
+        "case_insensitive": true
+      },
+      "score": 59,
+      "accuracy_bp": 2500,
+      "hit_rate_bp": 2500,
+      "max_combo": 1,
+      "rank": "D",
+      "seeked": false,
+      "scorable_words": 8,
+      "hit_words": 2,
+      "max_base_score": 260,
+      "lines": [
+        {
+          "line": 0,
+          "points": 50,
+          "bonus": 0,
+          "words": [
+            {
+              "word": 0,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 5,
+                "den": 5
+              },
+              "points": 50
+            },
+            {
+              "word": 1,
+              "tier": "MISS",
+              "accuracy": {
+                "num": 0,
+                "den": 1
+              },
+              "points": 0
+            },
+            {
+              "word": 2,
+              "tier": "MISS",
+              "accuracy": {
+                "num": 0,
+                "den": 1
+              },
+              "points": 0
+            }
+          ]
+        },
+        {
+          "line": 1,
+          "points": 9,
+          "bonus": 0,
+          "words": [
+            {
+              "word": 3,
+              "tier": "OK",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 9
+            },
+            {
+              "word": 4,
+              "tier": "MISS",
+              "accuracy": {
+                "num": 0,
+                "den": 1
+              },
+              "points": 0
+            }
+          ]
+        },
+        {
+          "line": 2,
+          "points": 0,
+          "bonus": 0,
+          "words": [
+            {
+              "word": 5,
+              "tier": "MISS",
+              "accuracy": {
+                "num": 0,
+                "den": 1
+              },
+              "points": 0
+            },
+            {
+              "word": 6,
+              "tier": "MISS",
+              "accuracy": {
+                "num": 0,
+                "den": 1
+              },
+              "points": 0
+            },
+            {
+              "word": 7,
+              "tier": "MISS",
+              "accuracy": {
+                "num": 0,
+                "den": 1
+              },
+              "points": 0
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

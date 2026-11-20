@@ -1,0 +1,163 @@
+{
+  "name": "long-instrumental-gap",
+  "description": "A 60 second gap between line 0 (starts 5000) and line 1 (starts 65000): the window of line 0 is capped at 6000 ms (end 11000, A11), so the words of line 0 sit at 7700 and 10400. moon is typed on time; rise is never committed and expires (63500 - 10400 > 3500) when sun is committed at 63500, the first instant of the lead-in (65000 - 1500): sun is expected at 67250, delta -3750, EARLY (10 %). set is PERFECT. Arithmetic: word 0 typed 'moon' delta 0 PERFECT(100) accuracy 4/4 combo 0(100): N = 10 x 4 x 4 x 100 x 100 = 1600000, D = 4 x 10000 = 40000, 1600000/40000 = 40.0000 -> 40; word 1 expired at 63500 (63500 - 10400 = 53100 > 3500); word 2 typed 'sun' delta -3750 EARLY(10) accuracy 3/3 combo 0(100): N = 10 x 3 x 3 x 10 x 100 = 90000, D = 3 x 10000 = 30000, 90000/30000 = 3.0000 -> 3; word 3 typed 'set' delta 0 PERFECT(100) accuracy 3/3 combo 0(100): N = 10 x 3 x 3 x 100 x 100 = 900000, D = 3 x 10000 = 30000, 900000/30000 = 30.0000 -> 30.",
+  "config": {
+    "lead_in_ms": 1500,
+    "miss_window_ms": 3500,
+    "min_accuracy_pct": 60,
+    "tier_perfect_limit_ms": 600,
+    "tier_great_limit_ms": 1200,
+    "tier_good_limit_ms": 2200,
+    "tier_ok_limit_ms": 3500,
+    "tier_perfect_pct": 100,
+    "tier_great_pct": 80,
+    "tier_good_pct": 55,
+    "tier_ok_pct": 30,
+    "tier_early_pct": 10,
+    "base_points_per_char": 10,
+    "combo_base_pct": 100,
+    "combo_step_words": 10,
+    "combo_step_pct": 25,
+    "combo_cap_pct": 200,
+    "combo_accuracy_pct": 80,
+    "line_bonus": 50,
+    "default_accent_insensitive": true,
+    "default_case_insensitive": true,
+    "rank_s_pct": 90,
+    "rank_a_pct": 75,
+    "rank_b_pct": 55,
+    "rank_c_pct": 35,
+    "expected_time_pct": 90,
+    "max_line_window_ms": 6000,
+    "last_line_window_ms": 5000,
+    "max_typed_chars": 64
+  },
+  "overrides": {},
+  "timeline": {
+    "lines": [
+      {
+        "start_ms": 5000,
+        "end_ms": 11000,
+        "text": "moon rise",
+        "words": [
+          {
+            "text": "moon",
+            "expected_ms": 7700
+          },
+          {
+            "text": "rise",
+            "expected_ms": 10400
+          }
+        ]
+      },
+      {
+        "start_ms": 65000,
+        "end_ms": 70000,
+        "text": "sun set",
+        "words": [
+          {
+            "text": "sun",
+            "expected_ms": 67250
+          },
+          {
+            "text": "set",
+            "expected_ms": 69500
+          }
+        ]
+      }
+    ]
+  },
+  "settings": {
+    "accent_insensitive": true,
+    "case_insensitive": true
+  },
+  "events": [
+    {
+      "type": "commit",
+      "t": 7700,
+      "word": 0,
+      "text": "moon"
+    },
+    {
+      "type": "commit",
+      "t": 63500,
+      "word": 2,
+      "text": "sun"
+    },
+    {
+      "type": "commit",
+      "t": 69500,
+      "word": 3,
+      "text": "set"
+    }
+  ],
+  "expected": {
+    "result": {
+      "settings": {
+        "accent_insensitive": true,
+        "case_insensitive": true
+      },
+      "score": 123,
+      "accuracy_bp": 7500,
+      "hit_rate_bp": 7500,
+      "max_combo": 1,
+      "rank": "A",
+      "seeked": false,
+      "scorable_words": 4,
+      "hit_words": 3,
+      "max_base_score": 140,
+      "lines": [
+        {
+          "line": 0,
+          "points": 40,
+          "bonus": 0,
+          "words": [
+            {
+              "word": 0,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 4,
+                "den": 4
+              },
+              "points": 40
+            },
+            {
+              "word": 1,
+              "tier": "MISS",
+              "accuracy": {
+                "num": 0,
+                "den": 1
+              },
+              "points": 0
+            }
+          ]
+        },
+        {
+          "line": 1,
+          "points": 33,
+          "bonus": 50,
+          "words": [
+            {
+              "word": 2,
+              "tier": "EARLY",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 3
+            },
+            {
+              "word": 3,
+              "tier": "PERFECT",
+              "accuracy": {
+                "num": 3,
+                "den": 3
+              },
+              "points": 30
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
