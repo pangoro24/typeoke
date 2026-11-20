@@ -1,0 +1,30 @@
+# Local-only working folders and files of the team standard
+specs/
+ai-related-docs/
+
+# Environment files (the example file is versioned)
+.env
+.env.*
+!.env.example
+
+# Python caches and virtual environments
+.venv/
+__pycache__/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+
+# Coverage output
+.coverage
+coverage/
+htmlcov/
+lcov.info
+
+# Flutter and Dart build output
+build/
+.dart_tool/
+.flutter-plugins*
+
+# IDE folders
+.idea/
+.vscode/
